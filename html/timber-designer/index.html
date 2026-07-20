@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timber House 3D Designer | 목조주택 골조 설계 도구</title>
+    <meta name="description" content="목조주택 골조 설계를 위한 전문 웹 기반 2D/3D CAD 도구. 벽체, 기둥, 창호를 배치하고 자재 소요량을 자동 산출합니다.">
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="style.css?v=2.0.0">
+    <!-- Three.js and PDF.js Libraries (loaded locally to bypass CSP/firewall restriction) -->
+    <script src="three.min.js"></script>
+    <script src="OrbitControls.js"></script>
+    <script src="GLTFExporter.js"></script>
+    <script src="TransformControls.js"></script>
+    <script src="pdf.min.js"></script>
+</head>
+<body class="dark-theme">
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'pdf.worker.min.js';
+    </script>
+
+    <!-- Top Header -->
+    <header class="app-header">
+        <div class="logo">
+            <span style="font-size: 24px; margin-right: 4px;">🌲</span>
+            <h1>Timber Designer <span class="badge">v2.0</span></h1>
+        </div>
+        <div class="header-controls">
+            <!-- Undo / Redo -->
+            <div class="btn-group">
+                <button id="btn-undo" class="btn btn-icon" title="실행 취소 (Ctrl+Z)" disabled>
+                    <span>↩️</span>
+                </button>
+                <button id="btn-redo" class="btn btn-icon" title="다시 실행 (Ctrl+Y)" disabled>
+                    <span>↪️</span>
+                </button>
+            </div>
+
+            <!-- Floor Selector -->
+            <div class="floor-selector-container" style="display: flex; align-items: center; gap: 6px;">
+                <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary);">층:</span>
+                <select id="floor-select" class="form-control" style="width: 80px; padding: 4px 8px; font-size: 12px; height: 34px; font-weight: 600;">
+                    <option value="1" selected>1층</option>
+                    <option value="2">2층</option>
+                    <option value="3">다락</option>
+                </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- File Upload & Auto-trace -->
+            <label for="blueprint-upload" class="btn btn-secondary" title="도면 이미지(PNG/JPG) 또는 PDF 파일을 업로드합니다.">
+                <span>📁</span> 도면 업로드
+            </label>
+            <input type="file" id="blueprint-upload" accept="image/*,application/pdf" style="display: none;">
+            
+            <button id="btn-auto-trace" class="btn btn-primary" title="업로드된 도면 이미지를 분석하여 벽체를 자동으로 생성합니다.">
+                <span>⚡</span> 자동 분석
+            </button>
+
+            <button id="btn-ai-rooms" class="btn btn-secondary" title="AI가 도면의 방 이름과 문·창문 위치를 인식합니다. (벽체 자동 분석 후 사용)">
+                <span>🤖</span> AI 방·개구부
+            </button>
+
+            <!-- Scale Setting -->
+            <button id="btn-set-scale" class="btn btn-warning" title="도면 상의 실제 거리를 지정하여 스케일을 보정합니다.">
+                <span>📏</span> 척도 설정
+            </button>
+            <span id="scale-status" class="scale-info">척도 미설정</span>
+
+            <div class="divider"></div>
+
+            <!-- View Modes Focus -->
+            <div class="btn-group" id="view-mode-group">
+                <button id="btn-view-split" class="btn btn-icon active" title="분할 화면 (2D + 3D)">
+                    <span>🥞</span>
+                </button>
+                <button id="btn-view-2d" class="btn btn-icon" title="2D 도면 집중">
+                    <span>🗺️</span>
+                </button>
+                <button id="btn-view-3d" class="btn btn-icon" title="3D 뷰어 집중">
+                    <span>🧊</span>
+                </button>
+            </div>
+
+            <!-- UI Layout Selector -->
+            <button id="btn-ui-toggle" class="btn btn-icon" title="스케치업 스타일 UI 전환">
+                <span>🛠️</span>
+            </button>
+
+            <!-- Graphic Quality & Sun Position -->
+            <div class="quality-selector-container" style="display: flex; align-items: center; gap: 4px;">
+                <span style="font-size: 11px; font-weight: 600; color: var(--text-secondary);">품질:</span>
+                <select id="quality-select" class="form-control" style="width: 85px; padding: 2px 4px; font-size: 11px; height: 34px; font-weight: 600;">
+                    <option value="high" selected>High PBR</option>
+                    <option value="low">Low (Fast)</option>
+                </select>
+            </div>
+            <div class="sun-selector-container" style="display: flex; align-items: center; gap: 4px;">
+                <span style="font-size: 11px; font-weight: 600; color: var(--text-secondary);">☀️:</span>
+                <select id="sun-select" class="form-control" style="width: 85px; padding: 2px 4px; font-size: 11px; height: 34px; font-weight: 600;">
+                    <option value="12" selected>12시(정오)</option>
+                    <option value="8">8시(아침)</option>
+                    <option value="16">16시(오후)</option>
+                    <option value="18">18시(노을)</option>
+                </select>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- Project Save / Load -->
+            <button id="btn-save-project" class="btn btn-secondary" title="프로젝트를 JSON 파일로 저장합니다 (Ctrl+S)">
+                <span>💾</span> 저장
+            </button>
+            <label for="load-project-input" class="btn btn-secondary" title="저장된 프로젝트 JSON 파일을 불러옵니다">
+                <span>📂</span> 불러오기
+            </label>
+            <input type="file" id="load-project-input" accept=".json" style="display: none;">
+
+            <div class="divider"></div>
+
+            <!-- Export Options Dropdown -->
+            <div class="export-dropdown-container">
+                <button id="btn-export-menu" class="btn btn-success">
+                    <span>📤</span> 내보내기 ▾
+                </button>
+                <div class="export-dropdown-content" id="export-dropdown">
+                    <button id="btn-export-glb" class="export-item" style="font-weight: bold; color: var(--accent-primary, #10b981);">
+                        <span>📦</span> 3D 모델 (.GLB / 스케치업)
+                    </button>
+                    <button id="btn-export-pdf" class="export-item">
+                        <span>📄</span> PDF 보고서 (.PDF)
+                    </button>
+                    <button id="btn-export-dxf" class="export-item">
+                        <span>📐</span> CAD 도면 (.DXF)
+                    </button>
+                    <button id="btn-export-obj" class="export-item">
+                        <span>🧊</span> 3D 스케치업 (.OBJ)
+                    </button>
+                    <button id="btn-export-img" class="export-item">
+                        <span>🖼️</span> 이미지 저장 (.PNG)
+                    </button>
+                    <button id="btn-show-bom" class="export-item">
+                        <span>📋</span> 자재 명세표 (BOM)
+                    </button>
+                </div>
+            </div>
+
+            <button id="btn-clear" class="btn btn-danger" title="모든 작업 초기화">
+                <span>🗑️</span>
+            </button>
+            
+            <!-- Theme Toggle -->
+            <button id="btn-theme-toggle" class="btn btn-icon" title="테마 변경">
+                <span id="theme-icon" style="font-size: 16px;">☀️</span>
+            </button>
+
+            <!-- Fullscreen Toggle -->
+            <button id="btn-fullscreen-toggle" class="btn btn-icon" title="전체화면 토글 (F11)">
+                <span style="font-size: 16px;">🖥️</span>
+            </button>
+
+        </div>
+    </header>
+
+    <!-- Main Workspace Container -->
+    <div class="workspace-container">
+        
+        <!-- Left Sidebar: Drawing Tools -->
+        <aside class="sidebar left-sidebar" id="sidebar-left">
+            <button class="sidebar-collapse-handle" id="btn-collapse-left" title="사이드바 접기/열기">◀</button>
+            <div class="sidebar-section drawing-tools-section">
+                <h3><span style="font-size: 14px; margin-right: 4px;">✏️</span> 그리기 도구</h3>
+                <div class="tool-grid">
+                    <button id="tool-select" class="tool-btn active" data-tool="select" title="선택 및 편집 (V)">
+                        <span style="font-size: 18px;">🖱️</span>
+                        <span>선택</span>
+                    </button>
+                    <button id="tool-move" class="tool-btn" data-tool="move" title="이동 (M)">
+                        <span style="font-size: 18px;">✥</span>
+                        <span>이동 (Move)</span>
+                    </button>
+                    <button id="tool-wall" class="tool-btn" data-tool="wall" title="벽체 그리기 (W)">
+                        <span style="font-size: 18px;">🧱</span>
+                        <span>벽체 (Wall)</span>
+                    </button>
+                    <button id="tool-post" class="tool-btn" data-tool="post" title="기둥 배치 (P)">
+                        <span style="font-size: 18px;">🪵</span>
+                        <span>기둥 (Post)</span>
+                    </button>
+                    <button id="tool-opening" class="tool-btn" data-tool="opening" title="창호/문 배치 (O)">
+                        <span style="font-size: 18px;">🚪</span>
+                        <span>창호 (Opening)</span>
+                    </button>
+                    <button id="tool-offset" class="tool-btn" data-tool="offset" title="벽체 평행 복사 (F)">
+                        <span style="font-size: 18px;">⇿</span>
+                        <span>오프셋</span>
+                    </button>
+                    <button id="tool-guide" class="tool-btn" data-tool="guide" title="가이드라인 (G)">
+                        <span style="font-size: 18px;">📐</span>
+                        <span>가이드라인</span>
+                    </button>
+                    <button id="tool-dimension" class="tool-btn" data-tool="dimension" title="치수 주석 (D)">
+                        <span style="font-size: 18px;">📏</span>
+                        <span>치수 주석</span>
+                    </button>
+                    <button id="tool-delete" class="tool-btn text-danger" data-tool="delete" title="요소 삭제 (Del)">
+                        <span style="font-size: 18px;">🧹</span>
+                        <span>삭제</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="sidebar-section grid-snap-section">
+                <h3><span style="font-size: 14px; margin-right: 4px;">🏁</span> 그리드 & 스냅</h3>
+                <div class="form-group row">
+                    <label for="chk-grid-snap">그리드 스냅</label>
+                    <input type="checkbox" id="chk-grid-snap" checked>
+                </div>
+                <div class="form-group row">
+                    <label for="chk-endpoint-snap">끝점 스냅</label>
+                    <input type="checkbox" id="chk-endpoint-snap" checked>
+                </div>
+                <div class="form-group row">
+                    <label for="chk-show-dimensions">치수선 표시</label>
+                    <input type="checkbox" id="chk-show-dimensions" checked>
+                </div>
+                <div class="form-group">
+                    <label for="select-grid-size">스냅 크기 (mm)</label>
+                    <select id="select-grid-size" class="form-control">
+                        <option value="50">50 mm</option>
+                        <option value="100" selected>100 mm</option>
+                        <option value="300">300 mm</option>
+                        <option value="400">400 mm (16")</option>
+                        <option value="600">600 mm (24")</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Layer Manager -->
+            <div class="sidebar-section layer-section">
+                <h3><span style="font-size: 14px; margin-right: 4px;">📑</span> 레이어</h3>
+                <div class="layer-list">
+                    <div class="form-group row"><label for="layer-walls">🧱 벽체</label><input type="checkbox" id="layer-walls" checked data-layer="walls"></div>
+                    <div class="form-group row"><label for="layer-posts">🪵 기둥</label><input type="checkbox" id="layer-posts" checked data-layer="posts"></div>
+                    <div class="form-group row"><label for="layer-openings">🚪 창호</label><input type="checkbox" id="layer-openings" checked data-layer="openings"></div>
+                    <div class="form-group row"><label for="layer-roof">🏠 지붕</label><input type="checkbox" id="layer-roof" checked data-layer="roof"></div>
+                    <div class="form-group row"><label for="layer-foundation">🧱 기초</label><input type="checkbox" id="layer-foundation" checked data-layer="foundation"></div>
+                    <div class="form-group row"><label for="layer-joists">📦 장선</label><input type="checkbox" id="layer-joists" checked data-layer="joists"></div>
+                    <div class="form-group row"><label for="layer-guides">📐 가이드</label><input type="checkbox" id="layer-guides" checked data-layer="guides"></div>
+                    <div class="form-group row"><label for="layer-annotations">📏 주석</label><input type="checkbox" id="layer-annotations" checked data-layer="annotations"></div>
+                </div>
+            </div>
+
+            <div class="sidebar-section shortcuts-info">
+                <h3><span style="font-size: 14px; margin-right: 4px;">⌨️</span> 단축키 가이드</h3>
+                <ul>
+                    <li><kbd>V</kbd> : 선택 도구</li>
+                    <li><kbd>W</kbd> : 벽체 그리기</li>
+                    <li><kbd>P</kbd> : 기둥 배치</li>
+                    <li><kbd>D</kbd> : 치수 주석</li>
+                    <li><kbd>R</kbd> : 지붕 생성</li>
+                    <li><kbd>Shift</kbd> : 각도 스냅</li>
+                    <li><kbd>Esc</kbd> : 취소</li>
+                    <li><kbd>Ctrl+Z/Y</kbd> : 실행취소/재실행</li>
+                    <li><kbd>Ctrl+C/V</kbd> : 복사/붙여넣기</li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Central Editing Area (Split Screen) -->
+        <main class="main-editor">
+            <!-- 2D Canvas Editor -->
+            <div id="panel-2d" class="editor-panel">
+                <div class="panel-header">
+                    <h2><span style="font-size: 14px; margin-right: 4px;">🗺️</span> 2D 평면도 스케치</h2>
+                    <span id="canvas-mode-indicator" class="mode-badge">선택 모드</span>
+                </div>
+                <div class="canvas-viewport" id="canvas-viewport">
+                    <div id="canvas-scroll-container" class="canvas-scroll-container">
+                        <!-- Canvas for background and drawing -->
+                        <canvas id="editor-canvas"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Drag Split Handle -->
+            <div class="split-handle" id="split-handle"></div>
+
+            <!-- 3D WebGL Viewer -->
+            <div id="panel-3d" class="editor-panel" style="position: relative;">
+                <div class="panel-header">
+                    <h2><span style="font-size: 14px; margin-right: 4px;">🧊</span> 3D 목재 골조 뷰어</h2>
+                    <div class="panel-actions">
+                        <label for="chk-show-sheathing" class="label-inline">
+                            <input type="checkbox" id="chk-show-sheathing" checked> 마감벽(반투명) 보기
+                        </label>
+                    </div>
+                </div>
+                <div class="threejs-viewport" id="threejs-viewport">
+                    <!-- Three.js Canvas gets injected here -->
+                </div>
+                <!-- SketchUp-style navigation legend -->
+                <div id="nav-help-hud" title="스케치업과 동일한 마우스 조작" style="position: absolute; top: 12px; right: 12px; z-index: 100; background: rgba(15,15,20,0.72); color: #e8e8ee; font-size: 11px; line-height: 1.7; padding: 8px 11px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.12); pointer-events: none; backdrop-filter: blur(4px);">
+                    <div style="font-weight:700; margin-bottom:3px; color:#10b981;">🖱️ 3D 조작 (SketchUp)</div>
+                    <div><b>회전</b> · 좌/휠버튼 드래그</div>
+                    <div><b>이동</b> · 우클릭 또는 Shift+드래그</div>
+                    <div><b>확대</b> · 휠 스크롤 (커서 기준)</div>
+                </div>
+                <!-- View Preset HUD Buttons (Placed outside viewport to avoid getting cleared on webgl init) -->
+                <div class="view-preset-hud" style="position: absolute; bottom: 20px; left: 20px; z-index: 100;">
+                    <button id="btn-view-iso" class="btn active" title="3D 입체 투시도">투시 (ISO)</button>
+                    <button id="btn-view-top" class="btn" title="위에서 보기 (평면)">평면 (Top)</button>
+                    <button id="btn-view-front" class="btn" title="앞에서 보기 (정면)">정면 (Front)</button>
+                    <button id="btn-view-side" class="btn" title="옆에서 보기 (측면)">측면 (Side)</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Right Sidebar: Properties & Settings -->
+        <aside class="sidebar right-sidebar" id="sidebar-right">
+            <button class="sidebar-collapse-handle" id="btn-collapse-right" title="사이드바 접기/열기">▶</button>
+            <div class="sidebar-section">
+                <h3><span style="font-size: 14px; margin-right: 4px;">⚙️</span> 요소 속성 설정</h3>
+                
+                <!-- Wall Properties -->
+                <div id="prop-group-wall" class="prop-group">
+                    <h4>벽체 (Wall) 설정</h4>
+                    <div class="form-group">
+                        <label for="wall-thickness">벽 두께 (mm)</label>
+                        <select id="wall-thickness" class="form-control">
+                            <option value="89">89 mm (2x4 구조)</option>
+                            <option value="140" selected>140 mm (2x6 구조)</option>
+                            <option value="184">184 mm (2x8 구조)</option>
+                            <option value="200">200 mm (커스텀)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="wall-height">벽 높이 (mm)</label>
+                        <input type="number" id="wall-height" class="form-control" value="2400" min="1000" max="6000" step="100">
+                    </div>
+                    <div class="form-group">
+                        <label for="stud-spacing">스터드 간격 (mm)</label>
+                        <select id="stud-spacing" class="form-control">
+                            <option value="300">300 mm</option>
+                            <option value="400" selected>400 mm (16" O.C.)</option>
+                            <option value="600">600 mm (24" O.C.)</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Post Properties -->
+                <div id="prop-group-post" class="prop-group" style="display: none;">
+                    <h4>기둥 (Post) 설정</h4>
+                    <div class="form-group">
+                        <label for="post-width">가로 규격 (mm)</label>
+                        <input type="number" id="post-width" class="form-control" value="140" min="38" max="600" step="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-depth">세로 규격 (mm)</label>
+                        <input type="number" id="post-depth" class="form-control" value="140" min="38" max="600" step="10">
+                    </div>
+                    <div class="form-group">
+                        <label for="post-height">기둥 높이 (mm)</label>
+                        <input type="number" id="post-height" class="form-control" value="2400" min="1000" max="6000" step="100">
+                    </div>
+                </div>
+
+                <!-- Opening Properties -->
+                <div id="prop-group-opening" class="prop-group" style="display: none;">
+                    <h4>창호 (Opening) 설정</h4>
+                    <div class="form-group">
+                        <label for="opening-type">창호 타입</label>
+                        <select id="opening-type" class="form-control">
+                            <option value="door" selected>문 (Door)</option>
+                            <option value="window">창문 (Window)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="opening-width">너비 (Width - mm)</label>
+                        <input type="number" id="opening-width" class="form-control" value="900" min="300" max="4000" step="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="opening-height">높이 (Height - mm)</label>
+                        <input type="number" id="opening-height" class="form-control" value="2100" min="300" max="3000" step="50">
+                    </div>
+                    <div class="form-group" id="opening-sill-group" style="display: none;">
+                        <label for="opening-sill-height">밑틀 높이 (Sill Height - mm)</label>
+                        <input type="number" id="opening-sill-height" class="form-control" value="900" min="0" max="2000" step="50">
+                    </div>
+                </div>
+
+                <!-- Selection Info (multi-select) -->
+                <div id="prop-group-multi" class="prop-group" style="display: none;">
+                    <h4>다중 선택</h4>
+                    <div class="selection-info">
+                        <span id="multi-select-count">0개 선택됨</span>
+                    </div>
+                    <div class="form-group" style="display: flex; gap: 8px; margin-top: 10px;">
+                        <button id="btn-mirror-x" class="btn btn-secondary" style="flex: 1; padding: 6px 0; justify-content: center;" title="선택 요소를 좌우 대칭 이동/복제">
+                            <span>↔️</span> 좌우 미러
+                        </button>
+                        <button id="btn-mirror-y" class="btn btn-secondary" style="flex: 1; padding: 6px 0; justify-content: center;" title="선택 요소를 상하 대칭 이동/복제">
+                            <span>↕️</span> 상하 미러
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Roof Settings -->
+            <div class="sidebar-section" id="prop-group-roof" style="border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <h3><span style="font-size: 14px; margin-right: 4px;">🏠</span> 지붕 설정</h3>
+                <div class="form-group">
+                    <label for="roof-type">지붕 타입</label>
+                    <select id="roof-type" class="form-control">
+                        <option value="none">없음 (None)</option>
+                        <option value="gable" selected>박공지붕 (Gable)</option>
+                        <option value="hip">모임지붕 (Hip)</option>
+                        <option value="shed">편경사 (Shed)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roof-pitch">지붕 경사 (Pitch)</label>
+                    <select id="roof-pitch" class="form-control">
+                        <option value="4">4:12 (18.4°) - 완만</option>
+                        <option value="6" selected>6:12 (26.6°) - 표준</option>
+                        <option value="8">8:12 (33.7°) - 급경사</option>
+                        <option value="10">10:12 (39.8°) - 다락용</option>
+                        <option value="12">12:12 (45°) - 최대</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="roof-overhang">처마 돌출 (mm)</label>
+                    <input type="number" id="roof-overhang" class="form-control" value="600" min="0" max="1500" step="100">
+                </div>
+                <div class="form-group">
+                    <label for="rafter-spacing">서까래 간격 (mm)</label>
+                    <select id="rafter-spacing" class="form-control">
+                        <option value="400" selected>400 mm (16" O.C.)</option>
+                        <option value="600">600 mm (24" O.C.)</option>
+                    </select>
+                </div>
+                <button id="btn-generate-roof" class="btn btn-primary" style="width: 100%; margin-top: 8px; justify-content: center;">
+                    <span>🏠</span> 지붕 생성/갱신
+                </button>
+            </div>
+
+            <!-- Room Areas / Spatial Info -->
+            <div class="sidebar-section room-takeoff" id="room-takeoff-section" style="border-top: 1px solid var(--border-color); padding-top: 15px;">
+                <h3><span style="font-size: 14px; margin-right: 4px;">🏠</span> 실내 공간 / 방 면적</h3>
+                <div id="room-list" class="takeoff-list" style="max-height: 120px; overflow-y: auto;">
+                    <div class="takeoff-item" style="color: var(--text-secondary); font-style: italic;">
+                        벽체가 닫히면 공간 면적이 자동 산출됩니다.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material Summary / Takeoff -->
+            <div class="sidebar-section material-takeoff">
+                <h3><span style="font-size: 14px; margin-right: 4px;">📊</span> 목재 자재 소요량 (예상)</h3>
+                <div class="takeoff-list">
+                    <div class="takeoff-item"><span>벽체 총 길이:</span><strong id="takeoff-wall-len">0.0 m</strong></div>
+                    <div class="takeoff-item"><span>스터드 (Studs):</span><strong id="takeoff-stud-count">0 개</strong></div>
+                    <div class="takeoff-item"><span>깔도리 (Plates):</span><strong id="takeoff-plate-len">0.0 m</strong></div>
+                    <div class="takeoff-item"><span>기둥 (Posts):</span><strong id="takeoff-post-count">0 개</strong></div>
+                    <div class="takeoff-item"><span>서까래 (Rafters):</span><strong id="takeoff-rafter-count">0 개</strong></div>
+                </div>
+            </div>
+
+            <!-- Cost Estimator -->
+            <div class="sidebar-section cost-section" style="border-top: 1px solid var(--border-color); padding-top: 15px; display: none;">
+                <h3><span style="font-size: 14px; margin-right: 4px;">💰</span> 예상 자재비</h3>
+
+                <div class="takeoff-list" id="cost-list">
+                    <div class="takeoff-item"><span>스터드 (2x6):</span><strong id="cost-studs">₩0</strong></div>
+                    <div class="takeoff-item"><span>깔도리:</span><strong id="cost-plates">₩0</strong></div>
+                    <div class="takeoff-item"><span>서까래:</span><strong id="cost-rafters">₩0</strong></div>
+                    <div class="takeoff-item" style="border-top: 1px solid var(--border-color); padding-top: 8px; margin-top: 4px;">
+                        <span style="font-weight: 700;">합계:</span>
+                        <strong id="cost-total" style="color: var(--accent-primary); font-size: 15px;">₩0</strong>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scale Setting Dialog Backdrop -->
+    <div id="scale-modal" class="modal-backdrop" style="display: none;">
+        <div class="modal-card">
+            <h3><span style="font-size: 18px; margin-right: 4px;">📏</span> 척도 실제 치수 입력</h3>
+            <p>화면에 드로잉한 선(빨간선)의 실제 거리를 입력해 주세요.</p>
+            <div class="form-group">
+                <label for="input-scale-real">실제 거리 (mm)</label>
+                <input type="number" id="input-scale-real" class="form-control" value="3000" min="1" step="100">
+            </div>
+            <div class="modal-actions">
+                <button id="btn-scale-cancel" class="btn btn-secondary">취소</button>
+                <button id="btn-scale-save" class="btn btn-warning">설정 완료</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOM Modal -->
+    <div id="bom-modal" class="modal-backdrop" style="display: none;">
+        <div class="modal-card" style="max-width: 700px; max-height: 80vh; overflow-y: auto;">
+            <h3><span style="font-size: 18px; margin-right: 4px;">📋</span> 자재 명세표 (Bill of Materials)</h3>
+            <table id="bom-table" class="bom-table">
+                <thead>
+                    <tr><th>항목</th><th>규격</th><th>수량</th><th>단위</th><th>단가 (₩)</th><th>소계 (₩)</th></tr>
+                </thead>
+                <tbody id="bom-tbody"></tbody>
+                <tfoot>
+                    <tr><td colspan="5" style="text-align: right; font-weight: 700;">총 합계:</td><td id="bom-total" style="font-weight: 700; color: var(--accent-primary);">₩0</td></tr>
+                </tfoot>
+            </table>
+            <div class="modal-actions">
+                <button id="btn-bom-close" class="btn btn-secondary">닫기</button>
+                <button id="btn-bom-print" class="btn btn-primary">🖨️ 인쇄</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Footer with VCB -->
+    <footer class="app-footer">
+        <div class="status-coord">
+            <span id="coord-x">X: 0mm</span>
+            <span id="coord-y">Y: 0mm</span>
+        </div>
+        <div class="vcb-container" id="vcb-container">
+            <label class="vcb-label">치수:</label>
+            <input type="text" id="vcb-input" class="vcb-input" placeholder="mm 입력 후 Enter" readonly>
+            <span class="vcb-unit">mm</span>
+        </div>
+        <div class="status-msg" id="status-msg">
+            도면 파일을 업로드하거나, 벽체 도구를 사용하여 그리기를 시작하세요.
+        </div>
+    </footer>
+
+    <!-- App Script Files -->
+    <script src="jspdf.umd.min.js"></script>
+    <script src="renderer3d.js?v=3.2.0"></script>
+    <script src="app.js?v=3.2.0"></script>
+</body>
+</html>

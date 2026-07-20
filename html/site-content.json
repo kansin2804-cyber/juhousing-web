@@ -1,0 +1,197 @@
+{
+  "meta": {
+    "title": "제이유 하우징 | 1mm의 정밀함으로 짓는 프리미엄 목조주택",
+    "description": "최고급 북미산 SPF 구조목과 정밀 레이저 수평 공법, 100% 투명 원가 정산 시스템으로 완성하는 평생 튼튼한 하이엔드 목조주택 전문 시공사 제이유 하우징입니다.",
+    "keywords": "목조주택 시공, 전원주택 건축, 하이엔드 목조주택, 투명정산 목조주택, 가평 전원주택, 경기 전원주택 시공",
+    "ogUrl": "https://juhousing.co.kr/",
+    "googleSiteVerification": "JJPkmJZRlvMK0_Bwrg6wUqQyVYOtf_n18GhDr2c9-cc"
+  },
+  "regions": {
+    "heading": "주요 시공 지역",
+    "items": [
+      {
+        "name": "가평 목조주택",
+        "href": "/regions/gapyeong.html"
+      },
+      {
+        "name": "양주 목조주택",
+        "href": "/regions/yangju.html"
+      },
+      {
+        "name": "화성 단독주택",
+        "href": "/regions/hwaseong.html"
+      },
+      {
+        "name": "양평 전원주택",
+        "href": "/regions/yangpyeong.html"
+      }
+    ]
+  },
+  "brand": {
+    "logo": "logo.png",
+    "logoAlt": "JU HOUSING"
+  },
+  "contact": {
+    "phone": "010-2951-0431",
+    "phoneDisplay": "010-2951-0431",
+    "ceo": "주승환 (CEO Joo Seung-hwan)",
+    "address": "경기도 양주시 부흥로 2128",
+    "footerTagline": "정직한 자재와 정밀한 데이터 시공으로 약속드립니다.\n건축주의 평생 신뢰를 짓는 정직한 시공 파트너.",
+    "company": "제이유 하우징(JuHousing)",
+    "bizNum": "279-66-00830",
+    "email": "kansin2804@gmail.com"
+  },
+  "social": {
+    "naverBlog": "https://m.blog.naver.com/ju-housing",
+    "instagram": "https://www.instagram.com/juhousig?igsh=MWlpamwyY3FrcXltZw==",
+    "kakao": "https://open.kakao.com/o/s3ODJdti",
+    "youtube": "https://youtu.be/cpo_Fo3ma-4?si=UefMNkZ4Ge3bCM4O"
+  },
+  "hero": {
+    "image": "images/hero_main.webp",
+    "imageAlt": "JU Housing 북미산 프리미엄 목조 주택 전경",
+    "badge": "1mm 정밀 엔지니어링 목조주택",
+    "title": "보이지 않는 1%의 정밀함이\n100년 주택의 가치를 결정합니다",
+    "subtitle": "북미산 최상급 건조 구조재와 디지털 레이저 프레이밍, 실시간 원가 공개가 만드는 격이 다른 주거 공간"
+  },
+  "competencies": {
+    "label": "Core Competencies",
+    "title": "제이유 하우징의 차별화된 스펙",
+    "cards": [
+      {
+        "number": "01",
+        "title": "정밀 엔지니어링 프레이밍 (±0.5mm 이하 제어)",
+        "body": "주택의 긴 수명은 골조의 미세 오차 제어에서 시작됩니다. 제이유 하우징은 3D 레이저 거리측정기와 디지털 정밀 수평계를 사용하여 프레이밍 오차를 ±0.5mm 이하로 관리합니다. 뒤틀림과 균열이 전혀 없는 대대손손 대물림할 수 있는 견고한 뼈대를 시공합니다.",
+        "image": "public/assets/Gemini_Generated_Image_hy77qthy77qthy77.webp",
+        "imageAlt": "북미산 SPF 구조목 품질",
+        "link": "/framing-detail.html",
+        "linkLabel": "데이터 기반 정밀 프레이밍 상세 보기 — 새 탭"
+      },
+      {
+        "number": "02",
+        "title": "세라믹 & 리얼징크 클래드 (유지보수 프리)",
+        "body": "자외선과 습기, 오염에 강한 프리미엄 외장 엔벨로프 설계. 16mm 최고급 세라믹 사이딩과 리얼 징크 외장 공법을 결합하여 한국의 사계절 기후 변화와 결로 현상으로부터 주택을 보호합니다. 비바람에 스스로 오염을 세척하는 자정 성능으로 언제나 신축의 품격을 유지합니다.",
+        "image": "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&w=800&auto=format&fit=crop",
+        "imageAlt": "모던 외장재",
+        "link": "/exterior-detail.html",
+        "linkLabel": "하이엔드 외장 시스템 상세 보기 — 새 탭"
+      },
+      {
+        "number": "03",
+        "title": "실시간 원가 정산 시스템 (공사비 추가 없음)",
+        "body": "건축 중 예상치 못한 공사비 추가 요구로 인한 스트레스를 완벽히 예방합니다. 제이유 하우징만의 투명한 실시간 원가 정산 트래커를 운영하여, 투입되는 모든 자재비와 외주 노무비를 실시간 건축주에게 상세히 공유하여 신뢰와 투명성의 파트너십을 실천합니다.",
+        "image": "public/assets/Gemini_Generated_Image_r5kdlzr5kdlzr5kd.webp",
+        "imageAlt": "JU 투명 정산 시스템",
+        "link": "/financial-detail.html",
+        "linkLabel": "JU 투명 정산 시스템 상세 보기 — 새 탭"
+      }
+    ]
+  },
+  "process": {
+    "heading": "제이유 하우징 시공 프로세스",
+    "steps": [
+      {
+        "id": "1",
+        "title": "1단계: 상담 및 견적"
+      },
+      {
+        "id": "2",
+        "title": "2단계: 데이터 설계"
+      },
+      {
+        "id": "3",
+        "title": "3단계: 정밀 시공"
+      },
+      {
+        "id": "4",
+        "title": "4단계: 마감 및 인테리어"
+      },
+      {
+        "id": "5",
+        "title": "5단계: 원가 정산 및 입주"
+      }
+    ]
+  },
+  "portfolio": {
+    "label": "Portfolio",
+    "title": "시공 포트폴리오",
+    "subtitle": "",
+    "items": [
+      {
+        "siteName": "가평",
+        "subtitle": "산중 모던 전원주택",
+        "image": "images/portfolio/portfolio-01.webp",
+        "imageAlt": "가평 산중 모던 전원주택"
+      },
+      {
+        "siteName": "평창",
+        "subtitle": "솔라 패널 친환경 주택",
+        "image": "images/portfolio/portfolio-02.webp",
+        "imageAlt": "평창 솔라 패널 친환경 주택"
+      },
+      {
+        "siteName": "횡성",
+        "subtitle": "산자락 단층 주택",
+        "image": "images/portfolio/portfolio-03.webp",
+        "imageAlt": "횡성 산자락 단층 주택"
+      },
+      {
+        "siteName": "여주",
+        "subtitle": "숲 품은 목구조 하우스",
+        "image": "images/portfolio/portfolio-04.webp",
+        "imageAlt": "여주 숲 품은 목구조 하우스"
+      },
+      {
+        "siteName": "이천",
+        "subtitle": "테라스형 모던 전원주택",
+        "image": "images/portfolio/portfolio-05.webp",
+        "imageAlt": "이천 테라스형 모던 전원주택"
+      },
+      {
+        "siteName": "부여",
+        "subtitle": "대창 미니멀 하우스",
+        "image": "images/portfolio/portfolio-06.webp",
+        "imageAlt": "부여 대창 미니멀 하우스"
+      },
+      {
+        "siteName": "태안",
+        "subtitle": "석재월 정원 단독주택",
+        "image": "images/portfolio/portfolio-07.webp",
+        "imageAlt": "태안 석재월 정원 단독주택"
+      },
+      {
+        "siteName": "군위",
+        "subtitle": "태양광 산속 주택",
+        "image": "images/portfolio/portfolio-08.webp",
+        "imageAlt": "군위 태양광 산속 주택"
+      },
+      {
+        "siteName": "완주",
+        "subtitle": "자연 친화 포치형 주택",
+        "image": "images/portfolio/portfolio-09.webp",
+        "imageAlt": "완주 자연 친화 포치형 주택"
+      }
+    ]
+  },
+  "faq": {
+    "heading": "자주 묻는 질문 (FAQ)",
+    "items": [
+      {
+        "question": "목조주택 건축 시 추가 공사비 폭탄이 걱정되는데 예방할 수 있나요?",
+        "answer": "네, 충분히 예방 가능합니다. 제이유 하우징은 견적 단계에서부터 자재 단가와 상세 수량을 100% 공개하는 투명 정산 시스템을 적용합니다. 건축주의 자재 업그레이드나 도면 변경 요청이 발생하지 않는 이상 부당한 추가 견적을 요구하지 않으며, 정기적으로 정산 내역을 투명하게 보고합니다."
+      },
+      {
+        "question": "목조주택은 철근콘크리트 주택에 비해 수명이나 내구성이 떨어지나요?",
+        "answer": "그렇지 않습니다. 함수율 19% 이하로 완벽히 건조(KD)된 고급 구조목만 사용하여 썩음과 수축 팽창을 원천 차단하고, 레이저 정밀 계측을 통해 골조 강도를 균일하게 설계합니다. 올바른 건조 구조재와 외벽 투습방습 기밀 공법이 동반된 목조주택은 철근콘크리트 주택보다 오히려 수명이 길고 지진에 훨씬 강합니다."
+      },
+      {
+        "question": "단열 성능과 방음(층간 소음 등) 대책은 어떻게 시공되나요?",
+        "answer": "독일식 3중 유리 시스템 창호와 친환경 고성능 인슐레이션(단열재)을 밀실 충진하고 가변형 기밀막을 꼼꼼하게 시공하여 냉난방비를 콘크리트 대비 최대 40% 이상 절감할 수 있는 패시브급 하우스를 지향합니다. 층간 차음을 위해서도 특수 차음재 시공 및 이중 바닥 시스템을 완벽히 적용합니다."
+      },
+      {
+        "question": "주로 어느 지역까지 시공이 가능한가요?",
+        "answer": "제이유 하우징은 가평·양평·남양주·양주·화성 등 경기도·수도권과 전국 시공이 가능합니다. 전원주택·단독주택 정밀 시공에 집중하며, 지역별 안내 페이지(가평·양주·화성·양평)에서도 스펙을 확인하실 수 있습니다."
+      }
+    ]
+  }
+}

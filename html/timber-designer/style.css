@@ -1,0 +1,1180 @@
+/* ======================================
+   Timber Designer v2.0 — Complete CSS
+   ====================================== */
+
+/* Reset & Root Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans KR', sans-serif;
+    user-select: none;
+}
+
+:root {
+    /* Dark Theme (Default) */
+    --bg-primary: #121214;
+    --bg-secondary: #1a1a1e;
+    --bg-tertiary: #24242b;
+    --border-color: #2e2e38;
+    --text-primary: #f5f5f7;
+    --text-secondary: #a0a0ab;
+    --accent-color: #ff9f43; /* Warm yellow/orange */
+    --accent-hover: #ffb061;
+    --primary-color: #1dd1a1; /* Mint green */
+    --primary-hover: #10ac84;
+    --danger-color: #ff6b6b;
+    --danger-hover: #ee5253;
+    --active-bg: rgba(255, 159, 67, 0.15);
+    --shadow-color: rgba(0, 0, 0, 0.4);
+    --glass-blur: blur(12px);
+    --header-height: 60px;
+    --footer-height: 36px;
+    --snap-color: #1dd1a1;
+    --guide-color: #54a0ff;
+    --handle-color: #ff9f43;
+}
+
+body.light-theme {
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f3f5;
+    --border-color: #dee2e6;
+    --text-primary: #2d3436;
+    --text-secondary: #636e72;
+    --accent-color: #e67e22;
+    --accent-hover: #d35400;
+    --primary-color: #2ecc71;
+    --primary-hover: #27ae60;
+    --danger-color: #e74c3c;
+    --danger-hover: #c0392b;
+    --active-bg: rgba(230, 126, 34, 0.1);
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* App Header */
+.app-header {
+    height: var(--header-height);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    z-index: 100;
+    box-shadow: 0 4px 20px var(--shadow-color);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo i {
+    font-size: 24px;
+    color: var(--primary-color);
+}
+
+.logo h1 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.logo .badge {
+    font-size: 10px;
+    padding: 2px 6px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    border-radius: 4px;
+    color: #fff;
+    vertical-align: middle;
+    margin-left: 6px;
+    font-weight: 700;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap;
+}
+
+.divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border-color);
+    margin: 0 2px;
+}
+
+.scale-info {
+    font-size: 12px;
+    color: var(--text-secondary);
+    background: var(--bg-tertiary);
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1px dashed var(--border-color);
+    white-space: nowrap;
+}
+
+.scale-info.active {
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Buttons */
+.btn {
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1px solid transparent;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    white-space: nowrap;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+.btn-primary:hover:not(:disabled) { background: var(--primary-hover); }
+
+.btn-secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+.btn-secondary:hover:not(:disabled) { background: var(--border-color); }
+
+.btn-warning {
+    background: var(--accent-color);
+    color: #fff;
+}
+.btn-warning:hover:not(:disabled) { background: var(--accent-hover); }
+
+.btn-danger {
+    background: var(--danger-color);
+    color: #fff;
+}
+.btn-danger:hover:not(:disabled) { background: var(--danger-hover); }
+
+.btn-success {
+    background: var(--primary-color);
+    color: #fff;
+}
+.btn-success:hover:not(:disabled) { background: var(--primary-hover); }
+
+.btn-icon {
+    width: 34px;
+    height: 34px;
+    padding: 0;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    border-radius: 8px;
+}
+.btn-icon:hover:not(:disabled) {
+    background: var(--border-color);
+}
+
+/* Main Workspace */
+.workspace-container {
+    flex: 1;
+    display: flex;
+    height: calc(100vh - var(--header-height) - var(--footer-height));
+    overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 260px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding: 20px;
+    gap: 24px;
+    z-index: 10;
+    position: relative;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.right-sidebar {
+    border-right: none;
+    border-left: 1px solid var(--border-color);
+    width: 280px;
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1), padding 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-section h3 {
+    font-size: 13px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Tool Grid */
+.tool-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.tool-btn {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 10px 6px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+}
+
+.tool-btn i {
+    font-size: 18px;
+}
+
+.tool-btn span {
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.tool-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+.tool-btn.active {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+    background: var(--active-bg);
+    box-shadow: 0 0 10px rgba(255, 159, 67, 0.1);
+}
+
+.tool-btn.text-danger.active {
+    color: var(--danger-color);
+    border-color: var(--danger-color);
+    background: rgba(255, 107, 107, 0.1);
+}
+
+/* Form Styles */
+.form-group {
+    margin-bottom: 12px;
+}
+
+.form-group.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+    font-weight: 500;
+}
+
+.form-group.row label {
+    margin-bottom: 0;
+}
+
+.form-control {
+    width: 100%;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: var(--accent-color);
+}
+
+/* Checkbox toggle */
+input[type="checkbox"] {
+    appearance: none;
+    width: 36px;
+    height: 20px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+input[type="checkbox"]::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--text-secondary);
+    top: 2px;
+    left: 2px;
+    transition: all 0.3s ease;
+}
+
+input[type="checkbox"]:checked {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+input[type="checkbox"]:checked::before {
+    left: 18px;
+    background: #fff;
+}
+
+/* Keyboard guide */
+.shortcuts-info ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.shortcuts-info li {
+    font-size: 11px;
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+kbd {
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 1px 5px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--text-primary);
+    box-shadow: 0 2px 0 var(--shadow-color);
+}
+
+/* Main Editor Layout */
+.main-editor {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    background: var(--bg-primary);
+}
+
+.editor-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.panel-header {
+    height: 44px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    z-index: 5;
+}
+
+.panel-header h2 {
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mode-badge {
+    font-size: 11px;
+    background: var(--active-bg);
+    color: var(--accent-color);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: 1px solid rgba(255, 159, 67, 0.2);
+}
+
+.panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.label-inline {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+/* Viewports */
+.canvas-viewport, .threejs-viewport {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #0d0d0f;
+}
+
+body.light-theme .canvas-viewport {
+    background: #e9ecef;
+}
+
+.canvas-scroll-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#editor-canvas {
+    display: block;
+    cursor: crosshair;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #141416;
+}
+
+body.light-theme #editor-canvas {
+    background: #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* Split Handle */
+.split-handle {
+    width: 6px;
+    background: var(--border-color);
+    cursor: col-resize;
+    z-index: 10;
+    transition: background 0.2s ease;
+    position: relative;
+}
+
+.split-handle:hover, .split-handle:active {
+    background: var(--accent-color);
+}
+
+.split-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 1px;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    border-left: 1px solid var(--text-secondary);
+    border-right: 1px solid var(--text-secondary);
+    opacity: 0.5;
+}
+
+/* Property group panel styling */
+.prop-group h4 {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.selection-info {
+    font-size: 13px;
+    color: var(--accent-color);
+    padding: 8px 0;
+}
+
+.material-takeoff {
+    margin-top: auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+}
+
+.takeoff-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.takeoff-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.takeoff-item span {
+    color: var(--text-secondary);
+}
+
+.takeoff-item strong {
+    color: var(--primary-color);
+}
+
+/* Dialog Modal */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: var(--glass-blur);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    animation: fadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.modal-card {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 24px;
+    width: 360px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+    transform: scale(0.9);
+    animation: scaleIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.modal-card h3 {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-color);
+}
+
+.modal-card p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+/* ======================================
+   Footer Status Bar with VCB
+   ====================================== */
+.app-footer {
+    height: var(--footer-height);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    z-index: 100;
+    gap: 20px;
+}
+
+.status-coord {
+    display: flex;
+    gap: 15px;
+    font-family: monospace;
+    flex-shrink: 0;
+}
+
+.status-msg {
+    flex: 1;
+    text-align: right;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+/* VCB (Value Control Box) — SketchUp-like dimension input */
+.vcb-container {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 3px 10px;
+    flex-shrink: 0;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.vcb-container.active {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 8px rgba(255, 159, 67, 0.3);
+}
+
+.vcb-label {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.vcb-input {
+    width: 80px;
+    background: transparent;
+    border: none;
+    color: var(--accent-color);
+    font-size: 13px;
+    font-weight: 700;
+    font-family: monospace;
+    outline: none;
+    text-align: right;
+    user-select: text;
+}
+
+.vcb-input::placeholder {
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-size: 10px;
+}
+
+.vcb-unit {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+    to { transform: scale(1); }
+}
+
+@keyframes snapPulse {
+    0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    50% { transform: translate(-50%, -50%) scale(1.5); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* --- Layout Enhancements & Buttons --- */
+.btn-group {
+    display: flex;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 2px;
+    gap: 2px;
+}
+
+.btn-group .btn {
+    border: none;
+    border-radius: 6px;
+    padding: 6px 10px;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-group .btn.active {
+    background: var(--accent-color);
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(255, 159, 67, 0.3);
+}
+
+/* Export Dropdown Menu */
+.export-dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+.export-dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 6px);
+    background-color: var(--bg-secondary);
+    min-width: 185px;
+    box-shadow: 0px 8px 24px var(--shadow-color);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    z-index: 200;
+    padding: 6px;
+}
+
+.export-dropdown-content.show {
+    display: block;
+}
+
+.export-item {
+    width: 100%;
+    background: none;
+    border: none;
+    color: var(--text-primary);
+    padding: 8px 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.15s ease;
+}
+
+.export-item:hover {
+    background-color: var(--bg-tertiary);
+    color: var(--accent-color);
+    padding-left: 15px;
+}
+
+/* Sidebar Collapse Handles */
+.sidebar-collapse-handle {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 48px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    cursor: pointer;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+#btn-collapse-left {
+    right: -21px;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+}
+
+#btn-collapse-right {
+    left: -21px;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+}
+
+.sidebar-collapse-handle:hover {
+    color: var(--accent-color);
+    background: var(--bg-tertiary);
+}
+
+/* Sidebar Collapsed State */
+.sidebar.collapsed {
+    width: 0px !important;
+    padding: 20px 0px !important;
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+    border-color: transparent !important;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* View Mode Toggles */
+.view-mode-2d #panel-3d {
+    display: none !important;
+}
+
+.view-mode-2d .split-handle {
+    display: none !important;
+}
+
+.view-mode-3d #panel-2d {
+    display: none !important;
+}
+
+.view-mode-3d .split-handle {
+    display: none !important;
+}
+
+/* --- SketchUp UI Preset Mode --- */
+body.sketchup-layout #sidebar-left {
+    position: absolute;
+    left: 20px;
+    top: 80px;
+    width: 76px;
+    height: auto;
+    max-height: calc(100vh - 120px);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: rgba(26, 26, 30, 0.9);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    padding: 12px 10px;
+    z-index: 1000;
+    overflow: visible;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+body.sketchup-layout #sidebar-left .drawing-tools-section {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+body.sketchup-layout #sidebar-left .grid-snap-section,
+body.sketchup-layout #sidebar-left .shortcuts-info {
+    display: none !important;
+}
+
+body.sketchup-layout #sidebar-left .drawing-tools-section h3 {
+    display: none !important;
+}
+
+body.sketchup-layout #sidebar-left .tool-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+    justify-items: center !important;
+    width: 100% !important;
+}
+
+body.sketchup-layout #sidebar-left .tool-btn {
+    padding: 0 !important;
+    width: 48px !important;
+    height: 48px !important;
+    border-radius: 8px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+}
+
+body.sketchup-layout #sidebar-left .tool-btn span:last-child {
+    display: none !important;
+}
+
+body.sketchup-layout #sidebar-left #btn-collapse-left {
+    display: none !important;
+}
+
+/* Right Sidebar in SketchUp Layout */
+body.sketchup-layout #sidebar-right {
+    position: absolute;
+    right: 20px;
+    top: 80px;
+    bottom: 50px;
+    width: 280px;
+    height: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: rgba(26, 26, 30, 0.85);
+    backdrop-filter: var(--glass-blur);
+    box-shadow: 0 10px 30px var(--shadow-color);
+    z-index: 100;
+    transform: translateX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body.sketchup-layout #sidebar-right.collapsed {
+    transform: translateX(calc(100% + 40px));
+    opacity: 1 !important;
+    width: 280px !important;
+    padding: 20px !important;
+    pointer-events: auto;
+}
+
+body.sketchup-layout #sidebar-right #btn-collapse-right {
+    left: -21px;
+    border-radius: 8px 0 0 8px;
+    display: flex;
+}
+
+body.sketchup-layout #sidebar-right.collapsed #btn-collapse-right {
+    background: var(--accent-color);
+    color: #fff;
+    left: -32px;
+    width: 32px;
+    height: 90px;
+    border-radius: 8px 0 0 8px;
+    font-weight: bold;
+    border-color: var(--accent-color);
+}
+
+body.sketchup-layout #sidebar-right.collapsed #btn-collapse-right::after {
+    content: '속성창 열기';
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-size: 11px;
+    margin-left: 2px;
+}
+
+/* Adjust workspace container padding when floating panels are active */
+body.sketchup-layout .workspace-container {
+    position: relative;
+}
+
+body.sketchup-layout .main-editor {
+    width: 100%;
+}
+
+/* ============================================================
+   PHASE 3: ADDITIONAL STYLES
+   ============================================================ */
+
+/* Layer List Panel */
+.layer-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.layer-list .form-group.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 2px 0;
+}
+
+.layer-list label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.layer-list input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--accent-primary);
+    cursor: pointer;
+}
+
+/* BOM Table Styling */
+.bom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    font-size: 13px;
+    color: var(--text-primary);
+}
+
+.bom-table th, .bom-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.bom-table th {
+    background-color: rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.bom-table tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.02);
+}
+
+.bom-table tfoot tr {
+    border-top: 2px solid var(--border-color);
+}
+
+.bom-table tfoot td {
+    padding: 12px 10px;
+}
+
+/* Cost Section styling */
+.cost-section .takeoff-item {
+    font-size: 13px;
+    padding: 4px 0;
+}
+
+.cost-section #cost-total {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* ============================================================
+   HUD VIEW PRESETS & SIDEBAR CONTRACTION
+   ============================================================ */
+
+/* Minimize Left Sidebar Width and layout to horizontal items */
+#sidebar-left {
+    width: 150px !important;
+    padding: 12px 8px !important;
+    gap: 12px !important;
+}
+
+#sidebar-left .sidebar-section {
+    margin-bottom: 0px !important;
+}
+
+#sidebar-left h3 {
+    font-size: 11px !important;
+    margin-bottom: 8px !important;
+}
+
+#sidebar-left .tool-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 4px !important;
+}
+
+#sidebar-left .tool-btn {
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    padding: 5px 8px !important;
+    gap: 6px !important;
+    border-radius: 6px !important;
+    height: 28px !important;
+    width: 100% !important;
+}
+
+#sidebar-left .tool-btn span:first-child {
+    font-size: 14px !important;
+}
+
+#sidebar-left .tool-btn span:last-child {
+    font-size: 10px !important;
+    font-weight: 500 !important;
+}
+
+#sidebar-left .form-group {
+    margin-bottom: 8px !important;
+}
+
+#sidebar-left .form-group label {
+    font-size: 10px !important;
+}
+
+#sidebar-left .form-group.row {
+    margin-bottom: 4px !important;
+}
+
+#sidebar-left .form-group.row label {
+    font-size: 11px !important;
+}
+
+#sidebar-left .shortcuts-info ul {
+    padding-left: 12px !important;
+}
+
+#sidebar-left .shortcuts-info li {
+    font-size: 10px !important;
+    margin-bottom: 3px !important;
+}
+
+#sidebar-left kbd {
+    font-size: 8px !important;
+    padding: 1px 3px !important;
+}
+
+/* HUD View Presets style */
+.view-preset-hud {
+    display: flex;
+    gap: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    border-radius: 8px;
+    padding: 4px;
+    background: rgba(18, 18, 22, 0.85);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.view-preset-hud .btn {
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+    font-weight: 600 !important;
+    border-radius: 4px !important;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    border: 1px solid transparent !important;
+    background: transparent !important;
+    color: var(--text-secondary) !important;
+}
+
+.view-preset-hud .btn:hover {
+    color: var(--text-primary) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.view-preset-hud .btn.active {
+    color: var(--accent-color) !important;
+    border-color: rgba(255, 159, 67, 0.2) !important;
+    background: rgba(255, 159, 67, 0.1) !important;
+}
+
+

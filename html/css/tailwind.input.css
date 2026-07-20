@@ -1,0 +1,10 @@
+/* Tailwind entry — compiled to tailwind.dist.css by `npm run build:css`. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global font stack fallback — mirrors the previous inline tailwind.config extend. */
+:root {
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}

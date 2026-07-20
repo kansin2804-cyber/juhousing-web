@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1차 예산 가이드 | 제이유 하우징</title>
+    <meta name="description" content="제이유 하우징 목조주택 1차 예산 가이드. 평수·마감 등급별 시공비 밴드와 평당가 참고, VAT·토목 제외 범위, FAQ까지. 캐나다 CWC 규격·함수율 19% 미만 KD 기준의 참고용 계산기.">
+    <meta name="keywords" content="목조주택 평당가, 목조주택 시공비, 전원주택 예산, 1차 예산 가이드, 목조주택 견적, 평당 공사비, 제이유 하우징, 추가공사비">
+    <link rel="canonical" href="https://juhousing.co.kr/estimate.html">
+    <meta property="og:title" content="1차 예산 가이드 계산기 | 제이유 하우징">
+    <meta property="og:description" content="목조주택 시공비·평당가 참고 밴드와 FAQ — 부지·평수·마감 등급별 1차 가이드.">
+    <meta property="og:url" content="https://juhousing.co.kr/estimate.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="제이유 하우징">
+    <meta property="og:image" content="https://juhousing.co.kr/images/hero_main.webp">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1071">
+    <meta property="og:image:alt" content="제이유 하우징 목조주택 1차 예산 가이드 계산기">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://juhousing.co.kr/images/hero_main.webp">
+    <meta name="twitter:image:alt" content="제이유 하우징 목조주택 1차 예산 가이드 계산기">
+    <link rel="stylesheet" href="/css/tailwind.dist.css" data-ju-tailwind-local>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <script defer src="/js/ga-core.js"></script>
+    <script defer src="/js/ga-events.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900" style="font-family:Pretendard,sans-serif;">
+    <header class="bg-[#1a237e] text-white px-4 py-5">
+        <div class="max-w-2xl mx-auto flex items-center justify-between gap-4">
+            <div>
+                <p class="text-xs text-blue-200 font-semibold tracking-wide">JU HOUSING</p>
+                <h1 class="text-xl font-extrabold">1차 예산 가이드 계산기</h1>
+            </div>
+            <a href="index.html" class="text-sm text-blue-200 hover:text-white underline underline-offset-4">홈으로</a>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-8 space-y-6">
+        <section class="rounded-2xl border-2 border-amber-300 bg-amber-50 px-5 py-4 space-y-3" role="note" aria-labelledby="legal-notice-title">
+            <p id="legal-notice-title" class="text-sm font-extrabold text-amber-900">【중요】 참고용 안내 — 법적 효력 없음</p>
+            <p class="text-xs text-amber-950/90 leading-relaxed font-semibold">
+                아래 계산기 금액은 <strong>예산 참고용 1차 가이드</strong>일 뿐이며, 법적 구속력이 있는 견적서·계약 금액이 <strong>아닙니다</strong>.
+            </p>
+            <ul id="legal-notice-list" class="text-xs text-amber-950/85 leading-relaxed space-y-2 list-disc pl-4 marker:text-amber-700">
+                <li>건설업법상 견적서, 청약·계약의 체결 또는 공사 도급 약정을 의미하지 않습니다.</li>
+                <li>부지·설계·인허가·VAT·부대비용·현장 조건·자재·인건비 변동에 따라 실제 공사비는 달라질 수 있습니다.</li>
+                <li>최종 금액은 현장 실사·정밀 견적서(또는 도급 계약서)에만 확정됩니다.</li>
+                <li>본 금액만으로 공사 착수·발주·대출·제3자 계약을 진행하지 마십시오.</li>
+            </ul>
+        </section>
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+            평수와 주요 마감재를 선택하면 <strong>예산 계획용 1차 가이드</strong>를 확인할 수 있습니다.
+            정밀 견적·현장 실사는 상담 후 별도 안내드립니다.
+        </p>
+
+        <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-3" aria-labelledby="estimate-howto">
+            <h2 id="estimate-howto" class="text-lg font-extrabold text-slate-900">목조주택 1차 예산, 어떻게 읽나요?</h2>
+            <p class="text-sm text-slate-600 leading-relaxed text-pretty">
+                제이유 하우징의 1차 가이드는 <strong>경량목구조(캐나다 목재협회 CWC 규격 · 함수율 19% 미만 KD 구조재)</strong>를 기준으로,
+                외장·지붕·창호·바닥 마감 등급을 조합해 <strong>참고용 시공비 밴드</strong>를 산출합니다.
+                평당가는 지역·토목·인허가·부가세·현장 여건에 따라 달라지므로, 아래 계산 결과는
+                <strong>대출·계약·착수의 근거가 아닙니다</strong>.
+            </p>
+            <ul class="text-sm text-slate-700 leading-relaxed space-y-1.5 list-disc pl-5">
+                <li><strong>포함 참고</strong>: 골조·단열·외장·지붕·창호·기본 마감 골자 (스펙은 선택 옵션에 따름)</li>
+                <li><strong>보통 별도</strong>: 토목·옹벽·정화조·상하수도 인입, 설계·감리, VAT, 가구·가전, 조경</li>
+                <li><strong>변동 요인</strong>: 경사지·해안 방청·지구단위 지침·자재·인건비 시세</li>
+            </ul>
+        </section>
+
+        <form id="calc-form" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5">
+            <div>
+                <label for="pyeong" class="block text-xs font-bold text-slate-500 mb-2">건축 평수 (평)</label>
+                <input id="pyeong" name="pyeong" type="number" min="10" max="500" step="0.1" value="30" required
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-lg font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+                <div>
+                    <label for="facade" class="block text-xs font-bold text-slate-500 mb-2">외장재</label>
+                    <select id="facade" name="facade" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm"></select>
+                </div>
+                <div>
+                    <label for="roof" class="block text-xs font-bold text-slate-500 mb-2">지붕재</label>
+                    <select id="roof" name="roof" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm"></select>
+                </div>
+                <div>
+                    <label for="window" class="block text-xs font-bold text-slate-500 mb-2">창호</label>
+                    <select id="window" name="window" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm"></select>
+                </div>
+                <div>
+                    <label for="floor" class="block text-xs font-bold text-slate-500 mb-2">바닥 마감</label>
+                    <select id="floor" name="floor" class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm"></select>
+                </div>
+            </div>
+            <label class="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer">
+                <input type="checkbox" id="legal-agree" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#1a237e] focus:ring-blue-500">
+                <span class="text-xs text-slate-600 leading-relaxed">
+                    위 <strong>참고용 안내(법적 효력 없음)</strong>를 확인했으며, 본 금액이 최종 견적·계약 금액이 아님을 이해합니다.
+                </span>
+            </label>
+            <button type="submit" id="btn-calc"
+                class="w-full rounded-xl bg-[#1a237e] text-white font-bold py-3.5 hover:bg-[#2a4f96] transition-colors disabled:opacity-60">
+                견적 계산하기
+            </button>
+        </form>
+
+        <div id="state-loading" class="hidden text-center py-8 text-slate-500 text-sm">계산 중…</div>
+        <div id="state-error" class="hidden rounded-xl bg-red-50 border border-red-100 text-red-700 px-4 py-3 text-sm"></div>
+
+        <section id="result" class="hidden bg-white rounded-2xl border-2 border-[#c9a227]/40 shadow-md p-6 space-y-4">
+            <p class="text-xs font-bold text-[#c9a227] uppercase tracking-wider">1차 예상 공사비 (참고용)</p>
+            <p class="text-xs font-bold text-red-700 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
+                ⚠ 본 금액은 법적 효력이 없는 참고용 가이드입니다. 계약·착수·대출의 근거로 사용할 수 없습니다.
+            </p>
+            <p id="result-total" class="text-3xl font-black text-[#1a237e]">—</p>
+            <p id="result-unit" class="text-sm text-slate-600">—</p>
+            <p id="result-scope" class="text-xs text-slate-500 leading-relaxed">—</p>
+            <div class="border-t border-slate-100 pt-4 space-y-2">
+                <p id="result-disclaimer" class="text-xs font-bold text-slate-600">—</p>
+                <ul id="result-legal-list" class="text-xs text-slate-500 leading-relaxed space-y-1.5 list-disc pl-4"></ul>
+            </div>
+            <a href="index.html?consult=1" id="btn-consult"
+                class="block text-center w-full rounded-xl border border-blue-600 text-blue-700 font-bold py-3 hover:bg-blue-600 hover:text-white transition-colors no-underline">
+                이 조건으로 건축 상담 신청 (정밀 견적 안내)
+            </a>
+
+            <div class="border-t border-slate-100 pt-4 space-y-3">
+                <p class="text-xs font-bold text-slate-700">정밀 견적 요청 (HQ 접수)</p>
+                <p class="text-[11px] text-slate-500 leading-relaxed">연락처를 남기면 본사 견적 시스템으로 바로 전달됩니다. 참고용 가이드 조건이 함께 전달됩니다.</p>
+                <div class="grid sm:grid-cols-2 gap-3">
+                    <input id="lead-name" type="text" placeholder="성함" autocomplete="name"
+                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm">
+                    <input id="lead-contact" type="tel" placeholder="연락처" autocomplete="tel"
+                        class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm">
+                </div>
+                <input id="lead-location" type="text" placeholder="부지 위치 (선택)" autocomplete="address-level2"
+                    class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm">
+                <textarea id="lead-note" rows="2" placeholder="요청사항 (선택)"
+                    class="w-full rounded-xl border border-slate-200 px-3 py-2.5 text-sm"></textarea>
+                <button type="button" id="btn-hq-lead"
+                    class="w-full rounded-xl bg-[#c9a227] text-[#1a237e] font-extrabold py-3 hover:brightness-105 transition disabled:opacity-60">
+                    HQ로 정밀 견적 요청 보내기
+                </button>
+                <p id="lead-msg" class="hidden text-xs text-center"></p>
+            </div>
+        </section>
+
+        <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-4" aria-labelledby="estimate-band">
+            <h2 id="estimate-band" class="text-lg font-extrabold text-slate-900">평수·스펙별 예산 참고 밴드 (2026)</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                스탠다드(세라믹 사이딩 + 리얼징크 + 국산 1등급 이중창)와 프리미엄(고급 외장·3중 시스템 창호)의
+                <strong>목조주택 평당가</strong> 참고 범위입니다. 지역·토목·VAT 제외.
+            </p>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm text-left border-collapse">
+                    <thead class="bg-slate-50 text-slate-700">
+                        <tr>
+                            <th class="border-b border-slate-200 px-3 py-2 font-bold">건축 평수</th>
+                            <th class="border-b border-slate-200 px-3 py-2 font-bold">스탠다드 밴드</th>
+                            <th class="border-b border-slate-200 px-3 py-2 font-bold">프리미엄 밴드</th>
+                            <th class="border-b border-slate-200 px-3 py-2 font-bold">평당가 참고</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-slate-700">
+                        <tr><td class="border-b border-slate-100 px-3 py-2">30평</td><td class="border-b border-slate-100 px-3 py-2">2.8 ~ 3.4억</td><td class="border-b border-slate-100 px-3 py-2">3.4 ~ 4.0억</td><td class="border-b border-slate-100 px-3 py-2">약 930 ~ 1,330만원</td></tr>
+                        <tr><td class="border-b border-slate-100 px-3 py-2">40평</td><td class="border-b border-slate-100 px-3 py-2">4.0 ~ 4.7억</td><td class="border-b border-slate-100 px-3 py-2">4.7 ~ 5.6억</td><td class="border-b border-slate-100 px-3 py-2">약 1,000 ~ 1,400만원</td></tr>
+                        <tr><td class="px-3 py-2">50평</td><td class="px-3 py-2">5.1 ~ 5.9억</td><td class="px-3 py-2">5.9 ~ 7.2억</td><td class="px-3 py-2">약 1,020 ~ 1,440만원</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <p class="text-xs text-slate-500 leading-relaxed">
+                * 위 밴드는 상단 계산기와 동일하게 <strong>참고용</strong>입니다.
+                상세 산정 로직·추가공사비 항목은
+                <a class="text-blue-700 underline" href="/journal/posts/224329789225/">저널: 추가 공사비의 진실</a>,
+                <a class="text-blue-700 underline" href="/financial-detail.html">투명 정산 상세</a>를 참고하세요.
+            </p>
+        </section>
+
+        <section class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-4" aria-labelledby="estimate-faq">
+            <h2 id="estimate-faq" class="text-lg font-extrabold text-slate-900">예산·평당가 자주 묻는 질문</h2>
+            <details class="border border-slate-200 rounded-xl p-4">
+                <summary class="cursor-pointer font-semibold text-slate-900 text-sm">Q. 목조주택 평당가에 VAT·토목비가 포함되나요?</summary>
+                <p class="mt-2 text-sm text-slate-700 leading-relaxed">포함되지 않습니다. 1차 가이드는 건축 본체 시공비 중심이며, 부가세·토목·인입·설계비는 별도입니다. 최종 견적서에서 항목별로 분리 표기합니다.</p>
+            </details>
+            <details class="border border-slate-200 rounded-xl p-4">
+                <summary class="cursor-pointer font-semibold text-slate-900 text-sm">Q. 계산기 금액으로 대출·계약을 진행해도 되나요?</summary>
+                <p class="mt-2 text-sm text-slate-700 leading-relaxed">안 됩니다. 법적 효력이 없는 참고용 가이드입니다. 대출·계약·착수는 현장 실사 후 발급되는 정밀 견적서(또는 도급 계약서)만 근거로 사용하세요.</p>
+            </details>
+            <details class="border border-slate-200 rounded-xl p-4">
+                <summary class="cursor-pointer font-semibold text-slate-900 text-sm">Q. 왜 인터넷에 나온 ‘평당 500만 원’과 차이가 나나요?</summary>
+                <p class="mt-2 text-sm text-slate-700 leading-relaxed">광고 평당가는 골조만·저사양 단열·창호 제외 등 범위를 좁힌 경우가 많습니다. 제이유 하우징은 CWC 규격 구조재·함수율 19% 미만 KD·세라믹·리얼징크 등 표준 스펙을 기준으로 밴드를 제시합니다.</p>
+            </details>
+            <details class="border border-slate-200 rounded-xl p-4">
+                <summary class="cursor-pointer font-semibold text-slate-900 text-sm">Q. 정밀 견적은 얼마나 걸리나요?</summary>
+                <p class="mt-2 text-sm text-slate-700 leading-relaxed">부지 주소·희망 평수·마감 선호를 남겨 주시면 1차 상담 후 현장 여건에 맞춰 안내합니다. 위 계산 결과로 HQ 정밀 견적 요청을 바로 보낼 수 있습니다.</p>
+            </details>
+        </section>
+
+        <nav class="text-sm text-slate-600" aria-label="관련 페이지">
+            <p class="font-semibold text-slate-800 mb-2">관련 가이드</p>
+            <ul class="flex flex-wrap gap-x-4 gap-y-2">
+                <li><a class="text-blue-700 underline" href="/financial-detail.html">투명 정산</a></li>
+                <li><a class="text-blue-700 underline" href="/framing-detail.html">정밀 프레이밍</a></li>
+                <li><a class="text-blue-700 underline" href="/exterior-detail.html">외장 시스템</a></li>
+                <li><a class="text-blue-700 underline" href="/journal/">저널</a></li>
+                <li><a class="text-blue-700 underline" href="/consult.html">건축 상담</a></li>
+            </ul>
+        </nav>
+    </main>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":"목조주택 평당가에 VAT·토목비가 포함되나요?","acceptedAnswer":{"@type":"Answer","text":"포함되지 않습니다. 1차 가이드는 건축 본체 시공비 중심이며, 부가세·토목·인입·설계비는 별도입니다. 최종 견적서에서 항목별로 분리 표기합니다."}},
+      {"@type":"Question","name":"계산기 금액으로 대출·계약을 진행해도 되나요?","acceptedAnswer":{"@type":"Answer","text":"안 됩니다. 법적 효력이 없는 참고용 가이드입니다. 대출·계약·착수는 현장 실사 후 발급되는 정밀 견적서(또는 도급 계약서)만 근거로 사용하세요."}},
+      {"@type":"Question","name":"왜 인터넷에 나온 평당 500만 원과 차이가 나나요?","acceptedAnswer":{"@type":"Answer","text":"광고 평당가는 골조만·저사양 단열·창호 제외 등 범위를 좁힌 경우가 많습니다. 제이유 하우징은 CWC 규격 구조재·함수율 19% 미만 KD·세라믹·리얼징크 등 표준 스펙을 기준으로 밴드를 제시합니다."}},
+      {"@type":"Question","name":"정밀 견적은 얼마나 걸리나요?","acceptedAnswer":{"@type":"Answer","text":"부지 주소·희망 평수·마감 선호를 남겨 주시면 1차 상담 후 현장 여건에 맞춰 안내합니다."}}
+    ]}
+    </script>
+
+    <script src="/js/ju-webhooks.js"></script>
+    <script src="/js/webhook-guard.js"></script>
+    <script>
+(function () {
+    var CONFIG_URL = '/js/ju-estimate-config.json';
+    var API_URL = '/website/estimate-guide';
+    var LEAD_URL = '/website/estimate-lead';
+    var API_FALLBACK = window.JUWebhooks.estimateGuide;
+    var form = document.getElementById('calc-form');
+    var pyeongEl = document.getElementById('pyeong');
+    var facadeEl = document.getElementById('facade');
+    var roofEl = document.getElementById('roof');
+    var windowEl = document.getElementById('window');
+    var floorEl = document.getElementById('floor');
+    var loadingEl = document.getElementById('state-loading');
+    var errorEl = document.getElementById('state-error');
+    var resultEl = document.getElementById('result');
+    var btnCalc = document.getElementById('btn-calc');
+    var btnConsult = document.getElementById('btn-consult');
+    var btnLead = document.getElementById('btn-hq-lead');
+    var leadMsg = document.getElementById('lead-msg');
+    var lastResult = null;
+    var lastPayload = null;
+
+    var FALLBACK = {
+        facade: [
+            { id: 'ceramic_standard', label: '세라믹 사이딩 [표준]' },
+            { id: 'starco', label: '스타코 플렉스 (절감형)' },
+            { id: 'brick', label: '고벽돌 조적 (고급형)' },
+            { id: 'limestone', label: '라임스톤 석재 (프리미엄)' }
+        ],
+        roof: [
+            { id: 'zinc_standard', label: '리얼 징크 (0.5T) [표준]' },
+            { id: 'shingle', label: '이중그림자 슁글 (절감형)' },
+            { id: 'tile', label: '수입 점토 기와' }
+        ],
+        window: [
+            { id: 'domestic_double', label: '국산 1등급 이중창' },
+            { id: 'german_triple', label: '독일식 3중 시스템' },
+            { id: 'us_system', label: '미국식 시스템' }
+        ],
+        floor: [
+            { id: 'engineered_wood', label: '강마루 [표준]' },
+            { id: 'porcelain', label: '포세린 타일' },
+            { id: 'vinyl', label: '강화마루/장판 (보급형)' }
+        ]
+    };
+
+    function fillSelect(el, items) {
+        if (!el || !items || !items.length) return;
+        el.innerHTML = items.map(function (item) {
+            return '<option value="' + item.id + '">' + item.label + '</option>';
+        }).join('');
+    }
+
+    function applyMaterials(materials) {
+        var m = materials || {};
+        fillSelect(facadeEl, m.facade || FALLBACK.facade);
+        fillSelect(roofEl, m.roof || FALLBACK.roof);
+        fillSelect(windowEl, m.window || FALLBACK.window);
+        fillSelect(floorEl, m.floor || FALLBACK.floor);
+    }
+
+    function applyLegalNotice(cfg) {
+        var list = document.getElementById('legal-notice-list');
+        if (!list || !cfg || !cfg.disclaimer_legal || !cfg.disclaimer_legal.length) return;
+        list.innerHTML = cfg.disclaimer_legal.map(function (line) {
+            return '<li>' + line + '</li>';
+        }).join('');
+    }
+
+    function updateConsultLink() {
+        if (!btnConsult || !lastResult) return;
+        var q = new URLSearchParams();
+        q.set('consult', '1');
+        q.set('pyeong', String(lastResult.pyeong || pyeongEl.value || '30'));
+        q.set('facade', facadeEl.value);
+        q.set('roof', roofEl.value);
+        q.set('window', windowEl.value);
+        q.set('floor', floorEl.value);
+        if (lastResult.formatted && lastResult.formatted.total) {
+            q.set('guide', lastResult.formatted.total);
+        }
+        btnConsult.href = 'index.html?' + q.toString();
+    }
+
+    async function loadConfig() {
+        try {
+            var res = await fetch(CONFIG_URL, { cache: 'no-store' });
+            var cfg = await res.json();
+            if (!res.ok || !cfg.ok) throw new Error('config unavailable');
+            applyMaterials(cfg.materials);
+            applyLegalNotice(cfg);
+        } catch (err) {
+            applyMaterials(FALLBACK);
+        }
+    }
+
+    loadConfig();
+
+    if (window.JUWebhookGuard) {
+        window.JUWebhookGuard.attachHoneypot(form);
+        window.JUWebhookGuard.markFormOpen(form);
+    }
+
+    function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.classList.remove('hidden');
+        resultEl.classList.add('hidden');
+    }
+
+    function hideError() {
+        errorEl.classList.add('hidden');
+    }
+
+    async function postGuide(payload) {
+        var res = await fetch(API_URL, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        var data = await res.json().catch(function () { return {}; });
+        if (res.ok && data.ok) return data;
+        // fallback to legacy n8n webhook
+        var res2 = await fetch(API_FALLBACK, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(payload)
+        });
+        var data2 = await res2.json().catch(function () { return {}; });
+        if (!res2.ok || !data2.ok) {
+            throw new Error(data.error || data2.error || ('서버 오류 (' + res.status + ')'));
+        }
+        return data2;
+    }
+
+    form.addEventListener('submit', async function (ev) {
+        ev.preventDefault();
+        hideError();
+        if (window.JUWebhookGuard) {
+            var guard = window.JUWebhookGuard.validateBeforeSubmit(form, 'estimate_guide', { max: 20 });
+            if (!guard.ok) {
+                showError(guard.message);
+                return;
+            }
+        }
+        loadingEl.classList.remove('hidden');
+        resultEl.classList.add('hidden');
+        btnCalc.disabled = true;
+
+        var payload = {
+            mode: 'guide',
+            pyeong: parseFloat(pyeongEl.value) || 30,
+            facade: facadeEl.value,
+            roof: roofEl.value,
+            window: windowEl.value,
+            floor: floorEl.value
+        };
+        if (window.JUWebhookGuard) {
+            payload = window.JUWebhookGuard.enrichPayload(payload);
+        }
+        lastPayload = payload;
+
+        try {
+            var data = await postGuide(payload);
+            document.getElementById('result-total').textContent = '약 ' + (data.formatted && data.formatted.total || '—');
+            document.getElementById('result-unit').textContent =
+                data.area_pyeong + '평 · 평당 ' + (data.formatted && data.formatted.unit || '—') +
+                ' (기준 ' + (data.formatted && data.formatted.base || '—') + ')';
+            document.getElementById('result-scope').textContent = data.included_scope || '';
+            document.getElementById('result-disclaimer').textContent = data.disclaimer || '';
+            var legalList = document.getElementById('result-legal-list');
+            legalList.innerHTML = '';
+            (data.disclaimer_legal || []).forEach(function (line) {
+                var li = document.createElement('li');
+                li.textContent = line;
+                legalList.appendChild(li);
+            });
+            lastResult = {
+                pyeong: data.area_pyeong || payload.pyeong,
+                formatted: data.formatted || {},
+                total_krw: data.total_krw || 0,
+                pricing_version: data.pricing_version || '',
+                season_coeff: data.season_coeff
+            };
+            updateConsultLink();
+            resultEl.classList.remove('hidden');
+            if (leadMsg) {
+                leadMsg.classList.add('hidden');
+                leadMsg.textContent = '';
+            }
+        } catch (err) {
+            showError(err.message || '계산 중 오류가 발생했습니다.');
+        } finally {
+            loadingEl.classList.add('hidden');
+            btnCalc.disabled = false;
+        }
+    });
+
+    if (btnLead) {
+        btnLead.addEventListener('click', async function () {
+            if (!lastResult || !lastPayload) {
+                showError('먼저 견적을 계산해 주세요.');
+                return;
+            }
+            var name = (document.getElementById('lead-name') || {}).value || '';
+            var contact = (document.getElementById('lead-contact') || {}).value || '';
+            name = String(name).trim();
+            contact = String(contact).trim();
+            if (!name || !contact) {
+                if (leadMsg) {
+                    leadMsg.classList.remove('hidden');
+                    leadMsg.style.color = '#b91c1c';
+                    leadMsg.textContent = '성함과 연락처를 입력해 주세요.';
+                }
+                return;
+            }
+            if (window.JUWebhookGuard) {
+                var guard = window.JUWebhookGuard.validateBeforeSubmit(form, 'estimate_lead', { max: 8 });
+                if (!guard.ok) {
+                    if (leadMsg) {
+                        leadMsg.classList.remove('hidden');
+                        leadMsg.style.color = '#b91c1c';
+                        leadMsg.textContent = guard.message;
+                    }
+                    return;
+                }
+            }
+            btnLead.disabled = true;
+            var leadBody = {
+                source: 'website_estimate',
+                client: name,
+                contact: contact,
+                location: ((document.getElementById('lead-location') || {}).value || '').trim(),
+                note: ((document.getElementById('lead-note') || {}).value || '').trim(),
+                pyeong: lastResult.pyeong || lastPayload.pyeong,
+                facade: lastPayload.facade,
+                roof: lastPayload.roof,
+                window: lastPayload.window,
+                floor: lastPayload.floor,
+                guide_total_krw: lastResult.total_krw || 0,
+                guide_formatted: (lastResult.formatted && lastResult.formatted.total) || '',
+                pricing_version: lastResult.pricing_version || '',
+                season_coeff: lastResult.season_coeff
+            };
+            if (window.JUWebhookGuard) {
+                leadBody = window.JUWebhookGuard.enrichPayload(leadBody);
+            }
+            try {
+                var res = await fetch(LEAD_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(leadBody)
+                });
+                var data = await res.json().catch(function () { return {}; });
+                if (!res.ok || !data.ok) throw new Error(data.error || ('HTTP ' + res.status));
+                if (leadMsg) {
+                    leadMsg.classList.remove('hidden');
+                    leadMsg.style.color = '#15803d';
+                    leadMsg.textContent = '접수 완료 (번호 ' + (data.id || '') + '). 담당자가 확인 후 연락드립니다.';
+                }
+            } catch (err) {
+                if (leadMsg) {
+                    leadMsg.classList.remove('hidden');
+                    leadMsg.style.color = '#b91c1c';
+                    leadMsg.textContent = err.message || '접수 실패';
+                }
+            } finally {
+                btnLead.disabled = false;
+            }
+        });
+    }
+})();
+    </script>
+</body>
+</html>

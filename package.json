@@ -1,0 +1,20 @@
+{
+  "name": "ju-housing-web",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JU Housing (juhousing.co.kr) static site — local Tailwind build + SSR homepage.",
+  "scripts": {
+    "build:css": "tailwindcss -i ./html/css/tailwind.input.css -o ./html/css/tailwind.dist.css --minify",
+    "watch:css": "tailwindcss -i ./html/css/tailwind.input.css -o ./html/css/tailwind.dist.css --watch",
+    "build:ssr": "python3 scripts/build_index_ssr.py",
+    "build:journal": "python3 scripts/journal_build.py",
+    "build:journal:rss": "python3 scripts/journal_build.py --rss-only",
+    "build:journal:hub": "python3 scripts/journal_build.py --index-only",
+    "build": "npm run build:css && npm run build:ssr && npm run build:journal",
+    "swap:cdn": "python3 scripts/swap_tailwind_cdn.py",
+    "restore:cdn": "python3 scripts/swap_tailwind_cdn.py --restore"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}

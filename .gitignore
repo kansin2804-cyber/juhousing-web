@@ -1,0 +1,59 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Test / coverage
+.pytest_cache/
+.pytest/
+htmlcov/
+.coverage
+
+# Environments
+.env
+.venv
+venv/
+ENV/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Large asset directories
+홈페이지 이미지/
+html/assets/
+
+# IDE configurations
+.idea/
+.cursor/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Node
+node_modules/
+
+# Secrets / local-only
+spreadsheet_id.txt
+.env
+.env.*
+
+# Image backups from optimization
+*.orig.webp
+*.orig.jpg
+*.orig.png
+
+# Node
+node_modules/
+
+# Secrets / local-only
+spreadsheet_id.txt
+.env
+.env.*
+
+# Image backups from optimization
+*.orig.webp
+*.orig.jpg
+*.orig.png

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/favicon.png" type="image/png">
+    <title>무료 건축 상담 신청 | 제이유 하우징</title>
+    <meta name="description" content="제이유 하우징 무료 건축 상담 신청. 입력하시면 1차 예산 가이드(참고용)를 이메일로 안내해 드립니다.">
+    <link rel="canonical" href="https://juhousing.co.kr/consult.html">
+    <meta property="og:title" content="무료 건축 상담 신청 | 제이유 하우징">
+    <meta property="og:description" content="목조주택 시공 무료 상담 — 부지 주소·희망 평수 입력 시 1차 예산 가이드 이메일 안내.">
+    <meta property="og:url" content="https://juhousing.co.kr/consult.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="제이유 하우징">
+    <meta property="og:image" content="https://juhousing.co.kr/images/hero_main.webp">
+    <meta property="og:image:width" content="1920">
+    <meta property="og:image:height" content="1071">
+    <meta property="og:image:alt" content="제이유 하우징 무료 건축 상담 신청">
+    <meta property="og:image:type" content="image/webp">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://juhousing.co.kr/images/hero_main.webp">
+    <meta name="twitter:image:alt" content="제이유 하우징 무료 건축 상담">
+    <link rel="stylesheet" href="/css/tailwind.dist.css" data-ju-tailwind-local>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <script defer src="/js/ga-core.js"></script>
+    <script defer src="/js/ga-events.js"></script>
+    <style>
+        html.embed-mode header { display: none; }
+        html.embed-mode main { padding-top: 1rem; }
+        html.embed-mode body > p:last-of-type { display: none; }
+    </style>
+    <script>
+        (function () {
+            var params = new URLSearchParams(window.location.search);
+            if (params.get('embed') === '1') document.documentElement.classList.add('embed-mode');
+        })();
+    </script>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen" style="font-family:Pretendard,sans-serif;">
+    <header class="relative bg-slate-950 text-white px-4 py-8 overflow-hidden">
+        <!-- background image with overlay -->
+        <div class="absolute inset-0 z-0 pointer-events-none select-none">
+            <img src="/images/hero_main.webp" alt="JU Housing" class="w-full h-full object-cover opacity-35 object-center">
+            <div class="absolute inset-0 bg-[#1a237e]/45 mix-blend-multiply"></div>
+        </div>
+        <div class="relative z-10 max-w-xl mx-auto flex items-center justify-between gap-4">
+            <div>
+                <p class="text-xs text-amber-400 font-extrabold tracking-widest uppercase">JU HOUSING</p>
+                <h1 class="text-2xl font-black tracking-tight mt-1">무료 건축 상담 신청</h1>
+            </div>
+            <a href="index.html" class="text-sm text-slate-200 hover:text-white font-semibold underline underline-offset-4 shrink-0 transition-colors">홈으로</a>
+        </div>
+    </header>
+
+    <main class="max-w-xl mx-auto px-4 py-8 space-y-6">
+        <section class="rounded-2xl border-2 border-amber-300 bg-amber-50 px-5 py-4 space-y-3" role="note" aria-labelledby="legal-notice-title">
+            <p id="legal-notice-title" class="text-sm font-extrabold text-amber-900">【중요】 참고용 안내 — 법적 효력 없음</p>
+            <p class="text-xs text-amber-950/90 leading-relaxed font-semibold">
+                신청 후 이메일로 안내되는 금액은 <strong>예산 참고용 1차 가이드</strong>일 뿐이며, 법적 구속력이 있는 견적서·계약 금액이 <strong>아닙니다</strong>.
+            </p>
+            <ul class="text-xs text-amber-950/85 leading-relaxed space-y-2 list-disc pl-4 marker:text-amber-700">
+                <li>건설업법상 견적서, 청약·계약의 체결 또는 공사 도급 약정을 의미하지 않습니다.</li>
+                <li>부지·설계·인허가·VAT·부대비용·현장 조건·자재·인건비 변동에 따라 실제 공사비는 달라질 수 있습니다.</li>
+                <li>최종 금액은 현장 실사·정밀 견적서(또는 도급 계약서)에만 확정됩니다.</li>
+                <li>본 금액만으로 공사 착수·발주·대출·제3자 계약을 진행하지 마십시오.</li>
+            </ul>
+        </section>
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+            아래 정보를 남겨 주시면 <strong>1차 예산 가이드(참고용)</strong>를 이메일로 보내드립니다.
+            정밀 견적·현장 실사는 담당자 상담 후 별도 안내드립니다.
+        </p>
+
+        <form id="consult-form" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-4">
+            <input type="hidden" name="유입경로" value="blog">
+
+            <div>
+                <label for="name" class="block text-xs font-bold text-slate-500 mb-1.5">성함 <span class="text-red-500">*</span></label>
+                <input required id="name" name="성함" type="text" autocomplete="name" placeholder="성함"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="phone" class="block text-xs font-bold text-slate-500 mb-1.5">연락처 <span class="text-red-500">*</span></label>
+                <input required id="phone" name="연락처" type="tel" autocomplete="tel" inputmode="numeric" placeholder="01012345678 (숫자만)"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="address" class="block text-xs font-bold text-slate-500 mb-1.5">시공 현장 주소</label>
+                <input id="address" name="부지위치" type="text" autocomplete="street-address" placeholder="지번 또는 도로명 주소"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="workType" class="block text-xs font-bold text-slate-500 mb-1.5">공사 종류</label>
+                <select id="workType" name="공사종류"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="신축 (목조 주택)">신축 (목조 주택)</option>
+                    <option value="증축/리모델링">증축/리모델링</option>
+                    <option value="외장/마감">외장/마감</option>
+                    <option value="기타">기타</option>
+                </select>
+            </div>
+            <div>
+                <label for="pyeong" class="block text-xs font-bold text-slate-500 mb-1.5">건축/공사 면적 (평) <span class="text-red-500">*</span></label>
+                <input required id="pyeong" name="평수" type="text" inputmode="decimal" placeholder="예: 30평형대"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="schedule" class="block text-xs font-bold text-slate-500 mb-1.5">공사 예정 시기</label>
+                <select id="schedule" name="공사시기"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <option value="3개월 이내">3개월 이내</option>
+                    <option value="6개월 이내">6개월 이내</option>
+                    <option value="1년 이내">1년 이내</option>
+                    <option value="미정">미정</option>
+                </select>
+            </div>
+            <div>
+                <label for="budget" class="block text-xs font-bold text-slate-500 mb-1.5">대략적인 총 예산</label>
+                <input id="budget" name="예산" type="text" placeholder="예: 2~3억 / 협의"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="message" class="block text-xs font-bold text-slate-500 mb-1.5">상세 요청 사항</label>
+                <textarea id="message" name="문의내용" rows="3" placeholder="예: 30평대 단층 목조주택 신축 희망합니다."
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm resize-y focus:outline-none focus:ring-2 focus:ring-blue-500">예시: 경기도 가평에 30평대 단층 목조주택 신축 희망합니다. 외벽 세라믹 사이딩 마감을 고려하고 있습니다.</textarea>
+            </div>
+            <div>
+                <label for="email" class="block text-xs font-bold text-slate-500 mb-1.5">1차 가이드 수신 Gmail <span class="text-red-500">*</span></label>
+                <input required id="email" name="이메일" type="email" autocomplete="email" placeholder="example@gmail.com"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <label class="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer">
+                <input type="checkbox" id="privacy-agree" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#1a237e] focus:ring-blue-500">
+                <span class="text-xs text-slate-600 leading-relaxed">
+                    <a href="/privacy.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-semibold underline underline-offset-2">개인정보처리방침</a>에 따라 개인정보 수집·이용에 동의합니다. (필수)
+                </span>
+            </label>
+
+            <label class="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer">
+                <input type="checkbox" id="legal-agree" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#1a237e] focus:ring-blue-500">
+                <span class="text-xs text-slate-600 leading-relaxed">
+                    위 <strong>참고용 안내(법적 효력 없음)</strong>를 확인했으며, 이메일로 받는 1차 가이드가 최종 견적·계약 금액이 아님을 이해합니다.
+                </span>
+            </label>
+
+            <p id="form-error" class="hidden text-sm font-medium text-red-600 bg-red-50 border border-red-100 rounded-xl px-3 py-2" role="alert"></p>
+
+            <button type="submit" id="btn-submit"
+                class="w-full rounded-xl bg-[#1a237e] text-white font-bold py-3.5 hover:bg-[#2a4f96] transition-colors disabled:opacity-60">
+                무료 상담 신청 · 1차 가이드 받기
+            </button>
+        </form>
+
+        <div id="state-loading" class="hidden text-center py-10 space-y-3">
+            <div class="inline-block h-10 w-10 rounded-full border-[3px] border-slate-200 border-t-blue-600 animate-spin"></div>
+            <p class="text-sm font-bold text-slate-700">1차 예산 가이드 계산 및 접수 중…</p>
+        </div>
+
+        <section id="state-success" class="hidden bg-white rounded-2xl border-2 border-emerald-200 shadow-md p-6 space-y-4 text-center">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 text-emerald-600 text-2xl">✓</div>
+            <h2 class="text-lg font-extrabold text-slate-900">접수가 완료되었습니다</h2>
+            <p class="text-sm text-slate-600 leading-relaxed">
+                입력하신 Gmail로 <strong>1차 예산 가이드(참고용)</strong>를 발송합니다.
+                정밀 견적·현장 실사는 담당자 상담 후 별도 안내드립니다.
+            </p>
+            <p id="success-email-note" class="text-xs text-slate-500 leading-relaxed"></p>
+            <p id="success-estimate" class="text-base font-black text-[#1a237e]"></p>
+            <p class="text-xs text-red-700 bg-red-50 border border-red-100 rounded-lg px-3 py-2 leading-relaxed">
+                ⚠ 안내된 금액은 법적 효력이 없는 참고용입니다. 계약·착수·대출의 근거로 사용할 수 없습니다.
+            </p>
+            <a href="index.html" class="inline-block rounded-xl border border-slate-200 px-5 py-2.5 text-sm font-bold text-slate-700 hover:bg-slate-50 no-underline">홈으로 돌아가기</a>
+        </section>
+
+        <p class="text-center text-xs text-slate-500">
+            전화 상담 <a href="tel:010-2951-0431" class="text-blue-600 font-semibold">010-2951-0431</a>
+            · <a href="estimate.html" class="text-blue-600 font-semibold underline underline-offset-2">예산 계산기만 보기</a>
+        </p>
+    </main>
+
+    <script src="/js/ju-webhooks.js"></script>
+    <script src="/js/webhook-guard.js"></script>
+    <script>
+(function () {
+    var WEBHOOK = window.JUWebhooks.blogConsult;
+    var params = new URLSearchParams(window.location.search);
+    var intakeSource = params.get('source') || (params.get('embed') === '1' ? 'website_diagnosis' : 'blog');
+
+    var form = document.getElementById('consult-form');
+    var loadingEl = document.getElementById('state-loading');
+    var successEl = document.getElementById('state-success');
+    var errEl = document.getElementById('form-error');
+    var btn = document.getElementById('btn-submit');
+
+    if (window.JUWebhookGuard) {
+        window.JUWebhookGuard.attachHoneypot(form);
+        window.JUWebhookGuard.markFormOpen(form);
+    }
+
+    function showError(msg) {
+        errEl.textContent = msg;
+        errEl.classList.remove('hidden');
+    }
+
+    function hideError() {
+        errEl.classList.add('hidden');
+    }
+
+    function emailStatusMessage(data) {
+        if (data && data.email_status === 'queued') {
+            return '가이드 이메일을 발송 중입니다. 수 분 내 도착하지 않으면 스팸함을 확인해 주세요.';
+        }
+        if (data && (data.email_status === 'skipped' || !data.has_email)) {
+            return '담당자가 내용을 검토한 뒤 연락드리겠습니다.';
+        }
+        return '가이드 이메일 발송을 요청했습니다.';
+    }
+
+    function applyQueryParams() {
+        var pyeong = params.get('pyeong');
+        if (pyeong) document.getElementById('pyeong').value = pyeong;
+        var lines = [];
+        if (pyeong) lines.push('계산 평수: ' + pyeong + '평');
+        ['facade', 'roof', 'window', 'floor'].forEach(function (key) {
+            var val = params.get(key);
+            if (val) lines.push(key + ': ' + val);
+        });
+        var guide = params.get('guide');
+        if (guide) lines.push('1차 가이드(참고): ' + guide);
+        if (!lines.length) return;
+        var msgEl = document.getElementById('message');
+        var prefix = '[계산기 조건]\n' + lines.join('\n');
+        if (!msgEl.value.trim()) {
+            msgEl.value = prefix;
+        } else if (msgEl.value.indexOf('[계산기 조건]') === -1) {
+            msgEl.value = prefix + '\n\n' + msgEl.value;
+        }
+    }
+
+    applyQueryParams();
+
+    form.addEventListener('submit', async function (ev) {
+        ev.preventDefault();
+        hideError();
+        if (window.JUWebhookGuard) {
+            var guard = window.JUWebhookGuard.validateBeforeSubmit(form, 'blog_consult');
+            if (!guard.ok) {
+                showError(guard.message);
+                return;
+            }
+        }
+        btn.disabled = true;
+
+        var payload = {
+            성함: document.getElementById('name').value.trim(),
+            연락처: document.getElementById('phone').value.replace(/\D/g, ''),
+            부지위치: document.getElementById('address').value.trim(),
+            공사종류: document.getElementById('workType').value,
+            평수: document.getElementById('pyeong').value.trim(),
+            공사시기: document.getElementById('schedule').value,
+            예산: document.getElementById('budget').value.trim(),
+            문의내용: document.getElementById('message').value.trim(),
+            이메일: document.getElementById('email').value.trim(),
+            유입경로: intakeSource
+        };
+        if (window.JUWebhookGuard) {
+            payload = window.JUWebhookGuard.enrichPayload(payload);
+        }
+
+        form.classList.add('hidden');
+        loadingEl.classList.remove('hidden');
+
+        try {
+            var res = await fetch(WEBHOOK, {
+                method: 'POST',
+                mode: 'cors',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload),
+                credentials: 'omit',
+                cache: 'no-store'
+            });
+            var data = await res.json().catch(function () { return {}; });
+            if (!res.ok || data.ok === false) {
+                throw new Error(data.error || ('서버 오류 (' + res.status + ')'));
+            }
+
+            loadingEl.classList.add('hidden');
+            successEl.classList.remove('hidden');
+            var emailNote = document.getElementById('success-email-note');
+            if (emailNote) emailNote.textContent = emailStatusMessage(data);
+            if (typeof window.juTrackConsultSuccess === 'function') {
+                window.juTrackConsultSuccess(intakeSource);
+            }
+            var estLine = document.getElementById('success-estimate');
+            if (data.formatted && data.formatted.total) {
+                estLine.textContent = '참고용 1차 가이드: 약 ' + data.formatted.total;
+            } else {
+                estLine.textContent = '';
+            }
+        } catch (err) {
+            loadingEl.classList.add('hidden');
+            form.classList.remove('hidden');
+            showError(err.message || '전송 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.');
+        } finally {
+            btn.disabled = false;
+        }
+    });
+})();
+    </script>
+</body>
+</html>
