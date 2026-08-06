@@ -93,6 +93,18 @@ def test_index_has_about_philosophy_anchors() -> None:
     assert 'id="final-cta-section"' in index
 
 
+def test_home_marketing_uses_2x6_not_2x4(content: dict) -> None:
+    """Stud size on the public homepage must be 2x6 (not 2x4)."""
+    blob = json.dumps(content, ensure_ascii=False)
+    index = (HTML / "index.html").read_text(encoding="utf-8")
+    for label, text in (("site-content.json", blob), ("index.html", index)):
+        assert "2x4" not in text and "2×4" not in text, f"{label} still has 2x4 marketing copy"
+    assert "2x6" in blob
+    assert "2x6" in index
+    hero = content.get("hero") or {}
+    assert "2x6" in (hero.get("subtitle") or "")
+
+
 def test_index_html_references_site_content() -> None:
     index = (HTML / "index.html").read_text(encoding="utf-8")
     assert "site-content.json" in index or "site-render.js" in index
