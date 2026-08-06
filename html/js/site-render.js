@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var CONTENT_URL = 'site-content.json?v=20260712a';
+    var CONTENT_URL = 'site-content.json?v=20260806a';
     var CHEVRON_SVG = '<svg class="faq-chevron size-5 shrink-0 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" /></svg>';
 
     function esc(text) {
@@ -155,6 +155,65 @@
         });
     }
 
+    function renderAbout(about) {
+        if (!about) return;
+        setText('ju-about-label', about.label);
+        var titleEl = document.getElementById('ju-about-title');
+        if (titleEl && about.title) titleEl.textContent = about.title;
+        setText('ju-about-body', about.body);
+        setText('ju-about-cta', about.ctaLabel);
+        var img = document.getElementById('ju-about-image');
+        if (img) {
+            if (about.image) img.src = about.image;
+            if (about.imageAlt) img.alt = about.imageAlt;
+        }
+        var root = document.getElementById('ju-about-points');
+        if (root && about.points && about.points.length) {
+            root.innerHTML = about.points.map(function (point) {
+                return (
+                    '<li class="flex gap-4">' +
+                    '<span class="mt-1 h-2 w-2 rounded-full bg-[#c4a35a] shrink-0" aria-hidden="true"></span>' +
+                    '<div><p class="font-bold text-slate-900">' + esc(point.title) + '</p>' +
+                    '<p class="text-sm sm:text-base text-slate-600 mt-1">' + esc(point.body) + '</p></div></li>'
+                );
+            }).join('');
+        }
+    }
+
+    function renderPhilosophy(philosophy) {
+        if (!philosophy) return;
+        setText('ju-philosophy-label', philosophy.label);
+        setText('ju-philosophy-title', philosophy.title);
+        setText('ju-philosophy-subtitle', philosophy.subtitle);
+        setText('ju-philosophy-note', philosophy.note);
+        setText('ju-philosophy-cta', philosophy.ctaLabel);
+        var root = document.getElementById('ju-philosophy-pillars');
+        if (root && philosophy.pillars && philosophy.pillars.length) {
+            root.innerHTML = philosophy.pillars.map(function (pillar) {
+                return (
+                    '<article class="ju-pillar ju-reveal is-visible">' +
+                    '<p class="text-[#c4a35a] text-sm font-bold tracking-[0.16em] uppercase">' + esc(pillar.title) + '</p>' +
+                    '<h3 class="mt-3 text-xl font-bold">' + esc(pillar.ko) + '</h3>' +
+                    '<p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">' + esc(pillar.body) + '</p>' +
+                    '</article>'
+                );
+            }).join('');
+        }
+    }
+
+    function renderCtaBlock(prefix, block) {
+        if (!block) return;
+        var titleEl = document.getElementById('ju-' + prefix + '-cta-title');
+        if (titleEl && block.title) titleEl.textContent = block.title;
+        setText('ju-' + prefix + '-cta-body', block.body);
+        setText('ju-' + prefix + '-cta-primary', block.primaryLabel);
+        var secondary = document.getElementById('ju-' + prefix + '-cta-secondary');
+        if (secondary && block.secondaryLabel) {
+            secondary.textContent = block.secondaryLabel;
+            if (block.secondaryHref) secondary.setAttribute('href', block.secondaryHref);
+        }
+    }
+
     function applyContent(data) {
         var meta = data.meta || {};
         if (meta.title) document.title = meta.title;
@@ -177,11 +236,20 @@
         setText('ju-hero-badge', hero.badge);
         setText('ju-hero-title', hero.title);
         setText('ju-hero-subtitle', hero.subtitle);
+        setText('ju-hero-primary-cta', hero.primaryCta);
+        var heroSecondary = document.getElementById('ju-hero-secondary-cta');
+        if (heroSecondary) {
+            if (hero.secondaryCta) heroSecondary.textContent = hero.secondaryCta;
+            if (hero.secondaryHref) heroSecondary.setAttribute('href', hero.secondaryHref);
+        }
         var heroImg = document.getElementById('heroMainImage');
         if (heroImg) {
             if (hero.image) heroImg.src = hero.image;
             if (hero.imageAlt) heroImg.alt = hero.imageAlt;
         }
+
+        renderAbout(data.about);
+        renderPhilosophy(data.philosophy);
 
         var comp = data.competencies || {};
         setText('ju-competencies-label', comp.label);
@@ -194,8 +262,10 @@
         setText('ju-process-heading', process.heading);
         renderProcessSteps(process.steps);
 
+        renderCtaBlock('mid', data.midCta);
         renderFaq(data.faq);
         renderRegions(data.regions);
+        renderCtaBlock('final', data.finalCta);
 
         var contact = data.contact || {};
         applyPhone(contact.phone, contact.phoneDisplay);

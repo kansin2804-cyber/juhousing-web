@@ -67,6 +67,32 @@ def test_site_render_js_exists() -> None:
     assert (HTML / "js" / "site-render.js").is_file()
 
 
+def test_about_and_philosophy_sections(content: dict) -> None:
+    about = content.get("about") or {}
+    assert about.get("title"), "about.title required"
+    assert about.get("body"), "about.body required"
+    assert len(about.get("points") or []) >= 3
+
+    philosophy = content.get("philosophy") or {}
+    assert philosophy.get("title"), "philosophy.title required"
+    assert len(philosophy.get("pillars") or []) >= 3
+
+
+def test_cta_blocks(content: dict) -> None:
+    mid = content.get("midCta") or {}
+    final = content.get("finalCta") or {}
+    assert mid.get("title") and mid.get("primaryLabel")
+    assert final.get("title") and final.get("primaryLabel")
+
+
+def test_index_has_about_philosophy_anchors() -> None:
+    index = (HTML / "index.html").read_text(encoding="utf-8")
+    assert 'id="about-section"' in index
+    assert 'id="philosophy-section"' in index
+    assert 'id="mid-cta-section"' in index
+    assert 'id="final-cta-section"' in index
+
+
 def test_index_html_references_site_content() -> None:
     index = (HTML / "index.html").read_text(encoding="utf-8")
     assert "site-content.json" in index or "site-render.js" in index

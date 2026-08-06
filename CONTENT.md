@@ -6,7 +6,7 @@
 
 | 파일 | 용도 |
 |------|------|
-| `html/site-content.json` | 히어로, 카드 3개, FAQ, 지역 링크, 연락처, SNS, SEO |
+| `html/site-content.json` | 히어로, 회사소개, 시공철학, CTA, 카드, FAQ, 지역, 연락처, SNS, SEO |
 | `html/site-content-process.json` | 시공 5단계 상세 글 (HTML 조각) |
 | `html/js/site-render.js` | JSON → 화면 반영 (건드릴 일 거의 없음) |
 | `html/framing-detail.html` 등 | 강점 카드 상세 (404 방지) |
