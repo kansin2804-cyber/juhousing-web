@@ -92,16 +92,59 @@
             .sticky-header__brand-link img { height: 2.5rem; }
             .sticky-header__brand-text { font-size: 1.125rem; line-height: 1.2; }
             .sticky-header__brand-link .flex { gap: 0.5rem; }
-            .sticky-header__estimate-mobile {
-                padding: 0 10px;
+            .sticky-header__estimate-mobile { display: none; }
+            .sticky-header__consult-nav {
+                display: inline-flex;
+                padding: 0 12px;
                 height: 40px;
-                font-size: 11px;
+                font-size: 12px;
             }
             .sticky-header__phone-mobile,
             .sticky-header__menu-btn {
                 width: 40px;
                 height: 40px;
             }
+        }
+        /* Mobile sticky conversion bar */
+        .ju-mobile-cta-bar {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .ju-mobile-cta-bar {
+                display: flex;
+                position: fixed;
+                left: 0; right: 0; bottom: 0;
+                z-index: 1050;
+                gap: 8px;
+                padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+                background: rgba(255,255,255,0.96);
+                backdrop-filter: blur(8px);
+                border-top: 1px solid #e2e8f0;
+                box-shadow: 0 -8px 24px rgba(15,23,42,0.08);
+            }
+            .ju-mobile-cta-bar a,
+            .ju-mobile-cta-bar button {
+                flex: 1;
+                height: 46px;
+                border-radius: 9999px;
+                font-size: 14px;
+                font-weight: 700;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                border: none;
+                text-decoration: none;
+            }
+            .ju-mobile-cta-bar__phone {
+                background: #0f172a;
+                color: #fff;
+            }
+            .ju-mobile-cta-bar__consult {
+                background: #c4a35a;
+                color: #111;
+            }
+            body { padding-bottom: 72px; }
+            .floating-call-btn { display: none !important; }
         }
 
         .nav-links { display: none; flex: 1; align-items: center; justify-content: center; gap: 30px; margin: 0; padding: 0; list-style: none; }
@@ -437,7 +480,7 @@
             </div>
 
             <!-- ssr:cards:start -->
-<div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/framing-detail.html" target="_blank" rel="noopener noreferrer" aria-label="데이터 기반 정밀 프레이밍 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_hy77qthy77qthy77.webp" alt="북미산 SPF 구조목 품질" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">01</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">정밀 엔지니어링 프레이밍 (±0.5mm 이하 제어)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">주택의 긴 수명은 골조의 미세 오차 제어에서 시작됩니다. 제이유 하우징은 3D 레이저 거리측정기와 디지털 정밀 수평계를 사용하여 프레이밍 오차를 ±0.5mm 이하로 관리합니다. 뒤틀림과 균열이 전혀 없는 대대손손 대물림할 수 있는 견고한 뼈대를 시공합니다.</p></div></a><div class="mt-auto border-t border-gray-100 bg-white px-8 pb-7 pt-5"><p class="mb-3 text-xs font-medium text-slate-500 tracking-tight">지금 무료로 상담해 보세요.</p><button type="button" data-consult-open data-cta-placement="competency_card" class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-blue-600/90 bg-white/90 px-3.5 py-2 text-xs font-bold text-blue-700 shadow-sm transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">건축 상담 신청</button></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/exterior-detail.html" target="_blank" rel="noopener noreferrer" aria-label="하이엔드 외장 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="모던 외장재" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">02</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">세라믹 &amp; 리얼징크 클래드 (유지보수 프리)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">자외선과 습기, 오염에 강한 프리미엄 외장 엔벨로프 설계. 16mm 최고급 세라믹 사이딩과 리얼 징크 외장 공법을 결합하여 한국의 사계절 기후 변화와 결로 현상으로부터 주택을 보호합니다. 비바람에 스스로 오염을 세척하는 자정 성능으로 언제나 신축의 품격을 유지합니다.</p></div></a><div class="mt-auto border-t border-gray-100 bg-white px-8 pb-7 pt-5"><p class="mb-3 text-xs font-medium text-slate-500 tracking-tight">지금 무료로 상담해 보세요.</p><button type="button" data-consult-open data-cta-placement="competency_card" class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-blue-600/90 bg-white/90 px-3.5 py-2 text-xs font-bold text-blue-700 shadow-sm transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">건축 상담 신청</button></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/financial-detail.html" target="_blank" rel="noopener noreferrer" aria-label="JU 투명 정산 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_r5kdlzr5kdlzr5kd.webp" alt="JU 투명 정산 시스템" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">03</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">실시간 원가 정산 시스템 (공사비 추가 없음)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">건축 중 예상치 못한 공사비 추가 요구로 인한 스트레스를 완벽히 예방합니다. 제이유 하우징만의 투명한 실시간 원가 정산 트래커를 운영하여, 투입되는 모든 자재비와 외주 노무비를 실시간 건축주에게 상세히 공유하여 신뢰와 투명성의 파트너십을 실천합니다.</p></div></a><div class="mt-auto border-t border-gray-100 bg-white px-8 pb-7 pt-5"><p class="mb-3 text-xs font-medium text-slate-500 tracking-tight">지금 무료로 상담해 보세요.</p><button type="button" data-consult-open data-cta-placement="competency_card" class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-blue-600/90 bg-white/90 px-3.5 py-2 text-xs font-bold text-blue-700 shadow-sm transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">건축 상담 신청</button></div></div>
+<div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/framing-detail.html" target="_blank" rel="noopener noreferrer" aria-label="데이터 기반 정밀 프레이밍 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_hy77qthy77qthy77.webp" alt="북미산 SPF 구조목 품질" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">01</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">정밀 엔지니어링 프레이밍 (±0.5mm 이하 제어)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">주택의 긴 수명은 골조의 미세 오차 제어에서 시작됩니다. 제이유 하우징은 3D 레이저 거리측정기와 디지털 정밀 수평계를 사용하여 프레이밍 오차를 ±0.5mm 이하로 관리합니다. 뒤틀림과 균열이 전혀 없는 대대손손 대물림할 수 있는 견고한 뼈대를 시공합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/exterior-detail.html" target="_blank" rel="noopener noreferrer" aria-label="하이엔드 외장 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="모던 외장재" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">02</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">세라믹 &amp; 리얼징크 클래드 (유지보수 프리)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">자외선과 습기, 오염에 강한 프리미엄 외장 엔벨로프 설계. 16mm 최고급 세라믹 사이딩과 리얼 징크 외장 공법을 결합하여 한국의 사계절 기후 변화와 결로 현상으로부터 주택을 보호합니다. 비바람에 스스로 오염을 세척하는 자정 성능으로 언제나 신축의 품격을 유지합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/financial-detail.html" target="_blank" rel="noopener noreferrer" aria-label="JU 투명 정산 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_r5kdlzr5kdlzr5kd.webp" alt="JU 투명 정산 시스템" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">03</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">실시간 원가 정산 시스템 (공사비 추가 없음)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">건축 중 예상치 못한 공사비 추가 요구로 인한 스트레스를 완벽히 예방합니다. 제이유 하우징만의 투명한 실시간 원가 정산 트래커를 운영하여, 투입되는 모든 자재비와 외주 노무비를 실시간 건축주에게 상세히 공유하여 신뢰와 투명성의 파트너십을 실천합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div>
 <!-- ssr:cards:end -->
         </div>
     </section>
@@ -720,9 +763,9 @@
         <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center ju-reveal">
             <h2 id="ju-mid-cta-title" class="text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-tight leading-snug whitespace-pre-line text-balance">도면이 없어도 됩니다.
 땅 주소와 예산부터 시작하세요.</h2>
-            <p id="ju-mid-cta-body" class="mt-5 text-sm sm:text-base text-slate-200/90 leading-relaxed">1차 상담에서 지역·평형·마감 방향을 정리하고, 필요하면 토지이용 진단·예산 가이드로 이어갑니다.</p>
+            <p id="ju-mid-cta-body" class="mt-5 text-sm sm:text-base text-slate-200/90 leading-relaxed">도면이 없어도 됩니다. 이름·연락처·지역만 남겨 주시면, 법적 견적이 아닌 1차 참고 가이드로 먼저 안내드립니다.</p>
             <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
-                <button type="button" data-consult-open data-cta-placement="mid" id="ju-mid-cta-primary" class="cta-button--hero w-full sm:w-auto">건축 상담 신청</button>
+                <button type="button" data-consult-open data-cta-placement="mid" id="ju-mid-cta-primary" class="cta-button--hero w-full sm:w-auto">도면 없이 1차 상담</button>
                 <a href="/estimate.html" id="ju-mid-cta-secondary" data-cta-placement="mid_secondary" class="cta-button--ghost w-full sm:w-auto">1차 예산 가이드</a>
             </div>
         </div>
@@ -773,9 +816,9 @@
     <section id="final-cta-section" class="bg-[#f8f7f4] border-t border-stone-200 py-16 sm:py-20" aria-labelledby="ju-final-cta-title">
         <div class="max-w-3xl mx-auto px-5 sm:px-8 text-center ju-reveal">
             <h2 id="ju-final-cta-title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight text-balance">다음 집은, 구조부터 다르게.</h2>
-            <p id="ju-final-cta-body" class="mt-4 text-base text-slate-600 leading-relaxed">가평·양주·화성·양평을 비롯한 경기·수도권 현장에서 상담을 받습니다.</p>
+            <p id="ju-final-cta-body" class="mt-4 text-base text-slate-600 leading-relaxed">도면·정확한 평수가 아직 없어도 됩니다. 1차 상담은 참고용이며, 부담 없이 지역과 방향만 말씀해 주세요.</p>
             <div class="mt-8 flex flex-col sm:flex-row gap-3 justify-center items-stretch sm:items-center">
-                <button type="button" data-consult-open data-cta-placement="final" id="ju-final-cta-primary" class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-colors">무료 1차 상담 신청</button>
+                <button type="button" data-consult-open data-cta-placement="final" id="ju-final-cta-primary" class="inline-flex items-center justify-center rounded-full bg-slate-900 px-7 py-3.5 text-sm font-bold text-white hover:bg-slate-800 transition-colors">도면 없이 1차 상담</button>
                 <a href="tel:010-2951-0431" data-ju-phone-link data-cta-placement="final_secondary" id="ju-final-cta-secondary" class="inline-flex items-center justify-center rounded-full border border-slate-300 bg-white px-7 py-3.5 text-sm font-bold text-slate-800 hover:border-slate-500 transition-colors">전화 상담</a>
             </div>
         </div>
@@ -865,51 +908,35 @@
             <!-- Form 상태 -->
             <div id="consultPaneForm" class="flex flex-col min-h-0">
                 <div class="border-b border-slate-200/60 px-6 pt-8 pb-5 bg-gradient-to-b from-white/50 to-transparent">
-                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-blue-600/90 mb-1">Premium Consult</p>
-                    <h2 id="consultModalTitle" class="text-xl font-extrabold text-slate-900 tracking-tight">건축 상담 신청</h2>
-                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">아래 정보를 남겨 주시면 담당자가 순차적으로 연락드립니다.</p>
+                    <p class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 mb-1">1차 상담</p>
+                    <h2 id="consultModalTitle" class="text-xl font-extrabold text-slate-900 tracking-tight">빠른 상담 신청</h2>
+                    <p class="mt-2 text-sm text-slate-600 leading-relaxed">도면·정확한 평수가 없어도 됩니다. <strong>이름·연락처·지역</strong>만 남겨 주시면, 법적 견적이 아닌 <strong>1차 참고 가이드</strong>로 연락드립니다.</p>
                 </div>
                 <form id="consult-form" class="px-6 py-5 space-y-4 overflow-y-auto flex-1">
                     <input type="hidden" name="유입경로" value="website">
                     <input type="hidden" name="공사종류" value="신축 (목조 주택)">
                     <input type="hidden" name="공사시기" value="미정">
+                    <input type="hidden" id="consultEmail" name="email" value="">
+                    <input type="hidden" id="consultPyeong" name="평수" value="미정">
+                    <input type="hidden" id="consultBudget" name="budget" value="">
+                    <input type="hidden" id="consultMessage" name="requirements" value="">
                     <div>
-                        <label for="consultName" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">성함</label>
-                        <input required id="consultName" name="name" autocomplete="name" type="text" placeholder="성함 또는 업체명"
-                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30" />
+                        <label for="consultName" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">이름 <span class="text-red-500">*</span></label>
+                        <input required id="consultName" name="name" autocomplete="name" type="text" placeholder="성함"
+                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400/30" />
                     </div>
                     <div>
-                        <label for="consultPhone" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">연락처</label>
+                        <label for="consultPhone" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">연락처 <span class="text-red-500">*</span></label>
                         <input required id="consultPhone" name="contact" autocomplete="tel" type="tel" placeholder="예: 010-0000-0000"
-                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30" />
+                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400/30" />
                     </div>
                     <div>
-                        <label for="consultEmail" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">이메일 주소</label>
-                        <input required id="consultEmail" name="email" autocomplete="email" type="email" placeholder="결과를 받으실 이메일"
-                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30" />
+                        <label for="consultLocation" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">지역 / 부지 위치 <span class="text-red-500">*</span></label>
+                        <input required id="consultLocation" name="location" autocomplete="street-address" type="text" placeholder="예: 가평·양주·화성·양평 또는 주소"
+                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-400/30" />
                     </div>
-                    <div>
-                        <label for="consultLocation" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">부지위치</label>
-                        <input id="consultLocation" name="location" autocomplete="street-address" type="text" placeholder="예정 부지 주소 또는 희망 지역"
-                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30" />
-                    </div>
-                    <div>
-                        <label for="consultPyeong" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">건축/공사 면적 (평) <span class="text-red-500">*</span></label>
-                        <input required id="consultPyeong" name="평수" type="text" inputmode="decimal" placeholder="예: 30평형대"
-                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30" />
-                    </div>
-                    <div>
-                        <label for="consultBudget" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">예산</label>
-                        <input id="consultBudget" name="budget" type="text" placeholder="예: 3억 / 협의"
-                            class="w-full rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30" />
-                    </div>
-                    <div>
-                        <label for="consultMessage" class="block text-xs font-bold text-slate-500 uppercase tracking-wide mb-1.5">문의내용</label>
-                        <textarea id="consultMessage" name="requirements" rows="4" placeholder="예: 30평대 단층 목조주택 신축 희망합니다." 
-                            class="w-full resize-y min-h-[100px] rounded-xl border border-slate-200/80 bg-white/80 px-4 py-3 text-sm text-slate-900 placeholder:text-slate-400 shadow-inner shadow-slate-200/40 focus:border-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30">예시: 경기도 가평에 30평대 단층 목조주택 신축 희망합니다. 외벽 세라믹 사이딩 마감을 고려하고 있습니다.</textarea>
-                    </div>
-                    <div class="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs text-amber-950 leading-relaxed">
-                        상담·이메일 안내는 <strong>참고용</strong>이며, 법적 견적서·계약 금액이 아닙니다.
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs text-slate-700 leading-relaxed">
+                        지금 단계는 <strong>1차 참고 상담</strong>입니다. 도면이 없어도 되고, 안내 내용은 법적 견적·계약 금액이 아닙니다.
                     </div>
                     <label class="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer">
                         <input type="checkbox" id="consultPrivacyAgree" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-blue-600 focus:ring-blue-500">
@@ -925,8 +952,8 @@
                     </label>
                     <p id="consultFormError" class="hidden text-sm font-medium text-red-600 bg-red-50/90 border border-red-100 rounded-xl px-3 py-2" role="alert"></p>
                     <button type="submit" id="consultSubmitBtn"
-                        class="w-full rounded-2xl bg-blue-600 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-blue-600/35 hover:bg-blue-700 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500">
-                        신청하기
+                        class="w-full rounded-2xl bg-slate-900 px-4 py-3.5 text-sm font-bold text-white shadow-lg shadow-slate-900/20 hover:bg-slate-800 transition-all focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-slate-700">
+                        1차 상담 신청하기
                     </button>
                 </form>
             </div>
@@ -956,9 +983,15 @@
         </div>
     </div>
 
-    <!-- 플로팅 전화 — 모바일에서 전화 앱(다이얼) 실행 -->
+    <!-- Mobile sticky conversion bar (phone + consult) -->
+    <nav class="ju-mobile-cta-bar" aria-label="모바일 빠른 상담">
+        <a href="tel:010-2951-0431" data-ju-phone-link data-cta-placement="mobile_sticky_phone" class="ju-mobile-cta-bar__phone">전화</a>
+        <button type="button" data-consult-open data-cta-placement="mobile_sticky" class="ju-mobile-cta-bar__consult">상담</button>
+    </nav>
+
+    <!-- 플로팅 전화 — 데스크톱 전용 (모바일은 sticky bar 사용) -->
     <a href="tel:010-2951-0431" aria-label="전화 상담 010-2951-0431" title="전화 상담"
-        class="fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[1050] bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition-transform hover:scale-110 flex items-center justify-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2">
+        class="floating-call-btn fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[1050] bg-blue-600 text-white p-4 rounded-full shadow-2xl hover:bg-blue-700 transition-transform hover:scale-110 flex items-center justify-center group focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2">
         <span class="sr-only">전화 걸기 010-2951-0431</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -1152,14 +1185,23 @@
         }
         btnSubmit.disabled = true;
 
+        var nameVal = document.querySelector('[name="name"]').value.trim();
+        var phoneVal = document.querySelector('[name="contact"]').value.trim();
+        var locVal = document.querySelector('[name="location"]').value.trim();
+        if (!nameVal || !phoneVal || !locVal) {
+            showError('이름·연락처·지역을 입력해 주세요.');
+            btnSubmit.disabled = false;
+            return;
+        }
+        var autoMsg = '1차 상담 요청 / 지역: ' + locVal + ' / 도면·평수 미정 가능';
         var payload = {
-            성함: document.querySelector('[name="name"]').value.trim(),
-            연락처: document.querySelector('[name="contact"]').value.trim(),
-            이메일: document.querySelector('[name="email"]').value.trim(),
-            부지위치: document.querySelector('[name="location"]').value.trim(),
-            예산: document.querySelector('[name="budget"]').value.trim(),
-            문의내용: document.querySelector('[name="requirements"]').value.trim(),
-            평수: (document.getElementById('consultPyeong') || {}).value.trim() || '30',
+            성함: nameVal,
+            연락처: phoneVal,
+            이메일: (document.querySelector('[name="email"]') || {}).value.trim() || '',
+            부지위치: locVal,
+            예산: (document.querySelector('[name="budget"]') || {}).value.trim() || '상담 후 확인',
+            문의내용: (document.querySelector('[name="requirements"]') || {}).value.trim() || autoMsg,
+            평수: (document.getElementById('consultPyeong') || {}).value.trim() || '미정',
             공사종류: (document.querySelector('[name="공사종류"]') || {}).value || '신축 (목조 주택)',
             공사시기: (document.querySelector('[name="공사시기"]') || {}).value || '미정',
             유입경로: (document.querySelector('[name="유입경로"]') || {}).value || 'website'
