@@ -129,3 +129,29 @@ def test_region_pages_match_home_brand_tone() -> None:
         # Avoid unverified percent-savings claims
         assert "40% 절감" not in html and "최대 40%" not in html
 
+
+def test_phase3_intent_title_and_faq_coverage(content: dict) -> None:
+    meta = content.get("meta") or {}
+    title = meta.get("title") or ""
+    assert "가평" in title and "양주" in title and "제이유 하우징" in title
+    desc = meta.get("description") or ""
+    assert "2x6" in desc
+
+    items = content.get("faq", {}).get("items", [])
+    assert len(items) >= 7, "FAQ should cover region/budget/process intents"
+    blob = " ".join(f"{i.get('question','')} {i.get('answer','')}" for i in items)
+    assert "도면" in blob
+    assert "견적" in blob or "예산" in blob
+    assert "프로세스" in blob or "공정" in blob
+    assert "가평" in blob and "양평" in blob
+
+
+def test_phase3_index_schema_and_nap() -> None:
+    index = (HTML / "index.html").read_text(encoding="utf-8")
+    assert "HomeAndConstructionBusiness" in index
+    assert '"@type": "Service"' in index or '"@type":"Service"' in index
+    assert "FAQPage" in index
+    assert "경기도 양주시 부흥로 2128" in index
+    assert "010-2951-0431" in index or "+82-10-2951-0431" in index
+    assert 'rel="preload"' in index and "hero_main.webp" in index
+    assert "도면이 없어도 1차 상담" in index
