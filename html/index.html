@@ -343,21 +343,32 @@
             background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
         }
         /* Always visible — reveal animation must never leave copy transparent */
-        .ju-reveal { opacity: 1; transform: none; }
-        .ju-pillar {
-            border-top: 1px solid rgba(255, 255, 255, 0.18);
+        .ju-reveal { opacity: 1 !important; transform: none !important; visibility: visible !important; }
+        /* Hard colors: Tailwind stone utilities may be missing from the CSS build */
+        #philosophy-section {
+            background: #1c1917 !important;
+            color: #fafaf9 !important;
+        }
+        #philosophy-section h2,
+        #philosophy-section h3 {
+            color: #ffffff !important;
+        }
+        #philosophy-section #ju-philosophy-label {
+            color: #d6d3d1 !important;
+        }
+        #philosophy-section #ju-philosophy-subtitle,
+        #philosophy-section .ju-pillar p,
+        #philosophy-section #ju-philosophy-note {
+            color: #e7e5e4 !important;
+            opacity: 1 !important;
+        }
+        #philosophy-section .ju-pillar {
+            border-top: 1px solid rgba(255, 255, 255, 0.22);
             padding-top: 1.5rem;
         }
-        #philosophy-section .ju-pillar > p:first-child {
-            color: #d6d3d1; /* stone-300 — readable on stone-900 */
-        }
-        #philosophy-section .ju-pillar > p:last-child,
-        #ju-philosophy-subtitle {
-            color: #e7e5e4; /* stone-200 */
-        }
-        #ju-philosophy-note {
-            color: #a8a29e; /* stone-400 but ensure opacity 1 */
-            opacity: 1;
+        .ju-pillar {
+            border-top: 1px solid rgba(15, 23, 42, 0.12);
+            padding-top: 1.5rem;
         }
         .ju-cta-panel {
             background:
@@ -512,7 +523,7 @@
     </section>
 
     <!-- Philosophy / 시공 철학 -->
-    <section id="philosophy-section" class="bg-stone-900 text-white py-24 sm:py-28 lg:py-32" aria-labelledby="ju-philosophy-title">
+    <section id="philosophy-section" class="py-24 sm:py-28 lg:py-32" aria-labelledby="ju-philosophy-title" style="background:#1c1917;color:#fafaf9;">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="max-w-3xl ju-reveal is-visible">
                 <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-stone-300 mb-4" id="ju-philosophy-label">Philosophy</p>
