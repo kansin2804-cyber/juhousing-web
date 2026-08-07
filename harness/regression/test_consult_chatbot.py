@@ -97,6 +97,28 @@ def test_chatbot_js_behavior_unchanged() -> None:
     assert "data.reply" in js or "data.message" in js
 
 
+def test_chatbot_land_diagnosis_wiring() -> None:
+    js = _read(CONSUMER_FILES["chatbot_js"])
+    assert "LAND_REPORT_URL" in js
+    assert "/website/land/report" in js
+    assert "내 땅 진단" in js
+    assert "setLandDiag" in js
+    assert "fetchLandReport" in js
+
+    index = _read(CONSUMER_FILES["index"])
+    assert "/land.html" in index
+    assert "내 땅 진단" in index
+
+    land = HTML / "land.html"
+    assert land.is_file(), "missing public land.html"
+    land_html = land.read_text(encoding="utf-8")
+    assert "/website/land/report" in land_html
+    assert "법률 자문" in land_html
+
+    sitemap = (HTML / "sitemap.xml").read_text(encoding="utf-8")
+    assert "https://juhousing.co.kr/land.html" in sitemap
+
+
 def test_webhook_guard_spam_fields_match_n8n() -> None:
     guard = _read(FRONTEND_FILES["webhook_guard"])
     assert "_hp_url" in guard
