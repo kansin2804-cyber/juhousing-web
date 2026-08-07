@@ -113,3 +113,19 @@ def test_index_html_references_site_content() -> None:
 def test_docker_compose_has_nginx() -> None:
     text = (WEB_ROOT / "docker-compose.yml").read_text(encoding="utf-8")
     assert "nginx" in text
+
+
+def test_region_pages_match_home_brand_tone() -> None:
+    """Region landings share homepage philosophy/2x6/CTA placement markers."""
+    for name in ("gapyeong.html", "yangju.html", "hwaseong.html", "yangpyeong.html"):
+        path = HTML / "regions" / name
+        assert path.is_file(), f"missing region page: {name}"
+        html = path.read_text(encoding="utf-8")
+        assert 'id="region-philosophy"' in html, f"{name} missing philosophy block"
+        assert "2x6" in html, f"{name} must mention 2x6 studs"
+        assert "2x4" not in html, f"{name} must not mention 2x4"
+        assert "Structure" in html and "Envelope" in html and "Trust" in html
+        assert "data-cta-placement=" in html, f"{name} missing CTA placement attrs"
+        # Avoid unverified percent-savings claims
+        assert "40% 절감" not in html and "최대 40%" not in html
+

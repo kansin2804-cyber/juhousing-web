@@ -10,7 +10,7 @@
 | `html/site-content-process.json` | 시공 5단계 상세 글 (HTML 조각) |
 | `html/js/site-render.js` | JSON → 화면 반영 (건드릴 일 거의 없음) |
 | `html/framing-detail.html` 등 | 강점 카드 상세 (404 방지) |
-| `html/regions/*.html` | 지역/키워드 랜딩 (가평·양주·화성·양평) |
+| `html/regions/*.html` | 지역/키워드 랜딩 (가평·양주·화성·양평) — 홈과 동일하게 2x6·시공철학·CTA 톤 유지 |
 | `html/sitemap.xml` | 검색엔진 URL 목록 |
 | `html/logo.png` | 상단 로고 |
 | `html/images/hero_main.jpg` | 메인 히어로 배경 |
