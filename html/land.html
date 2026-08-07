@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내 땅 진단 | 제이유 하우징</title>
+    <meta name="description" content="주소만 입력하면 용도지역·건폐율·용적률·법적 최대 연면적·인허가 순서를 참고용으로 정리합니다. 법률 자문이 아닌 1차 진단 가이드.">
+    <meta name="keywords" content="내 땅 진단, 용도지역 조회, 건폐율, 용적률, 개발행위허가, 전원주택 부지, 목조주택 인허가, 제이유 하우징">
+    <link rel="canonical" href="https://juhousing.co.kr/land.html">
+    <meta property="og:title" content="내 땅 진단 | 제이유 하우징">
+    <meta property="og:description" content="주소 기반 용도지역·건폐/용적·최대 연면적 1차 참고 진단. 법률 자문 아님.">
+    <meta property="og:url" content="https://juhousing.co.kr/land.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="제이유 하우징">
+    <meta property="og:image" content="https://juhousing.co.kr/images/hero_main.webp">
+    <meta property="og:locale" content="ko_KR">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://juhousing.co.kr/images/hero_main.webp">
+    <link rel="stylesheet" href="/css/tailwind.dist.css" data-ju-tailwind-local>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <script defer src="/js/ga-core.js"></script>
+    <script defer src="/js/ga-events.js"></script>
+</head>
+<body class="bg-slate-50 text-slate-900" style="font-family:Pretendard,sans-serif;">
+    <header class="bg-[#1a237e] text-white px-4 py-5">
+        <div class="max-w-2xl mx-auto flex items-center justify-between gap-4">
+            <div>
+                <p class="text-xs text-blue-200 font-semibold tracking-wide">JU HOUSING</p>
+                <h1 class="text-xl font-extrabold">내 땅 진단</h1>
+            </div>
+            <div class="flex items-center gap-3 text-sm">
+                <a href="estimate.html" class="text-blue-200 hover:text-white underline underline-offset-4">예산 가이드</a>
+                <a href="index.html" class="text-blue-200 hover:text-white underline underline-offset-4">홈으로</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto px-4 py-8 space-y-6">
+        <section class="rounded-2xl border-2 border-amber-300 bg-amber-50 px-5 py-4 space-y-3" role="note" aria-labelledby="legal-notice-title">
+            <p id="legal-notice-title" class="text-sm font-extrabold text-amber-900">【중요】 참고용 안내 — 법률 자문 아님</p>
+            <p class="text-xs text-amber-950/90 leading-relaxed font-semibold">
+                본 진단은 V-World·공개 용도지역 기준의 <strong>1차 참고 정보</strong>이며, 법률 자문·인허가 확정이 <strong>아닙니다</strong>.
+            </p>
+            <ul class="text-xs text-amber-950/85 leading-relaxed space-y-2 list-disc pl-4 marker:text-amber-700">
+                <li>실제 건폐율·용적·접도·지구단위 지침은 관할 시청·군청 확인이 우선입니다.</li>
+                <li>농지·산지·보전지역은 전용·허가 요건이 달라질 수 있습니다.</li>
+                <li>본 결과만으로 매매·착공·대출·제3자 계약을 진행하지 마십시오.</li>
+            </ul>
+        </section>
+
+        <p class="text-sm text-slate-600 leading-relaxed">
+            도로명 또는 지번 주소를 입력하면 <strong>용도지역·건폐/용적·법적 최대 연면적·인허가 순서</strong>를 참고용으로 정리합니다.
+            정밀 상담은 <a href="consult.html" class="text-[#1a237e] font-semibold underline">건축 상담</a> 또는 챗봇 「내 땅 진단」에서도 가능합니다.
+        </p>
+
+        <form id="land-form" class="bg-white rounded-2xl border border-slate-200 shadow-sm p-6 space-y-5">
+            <div>
+                <label for="address" class="block text-xs font-bold text-slate-500 mb-2">부지 주소</label>
+                <input id="address" name="address" type="text" required autocomplete="street-address"
+                    placeholder="예) 경기도 가평군 청평면 대성리 351-3"
+                    class="w-full rounded-xl border border-slate-200 px-4 py-3 text-base font-semibold focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div>
+                <label for="structure" class="block text-xs font-bold text-slate-500 mb-2">예정 구조 (참고)</label>
+                <select id="structure" name="structure"
+                    class="w-full rounded-xl border border-slate-200 px-3 py-3 text-sm">
+                    <option value="목조" selected>목조 (경량목구조)</option>
+                    <option value="철근콘크리트">철근콘크리트</option>
+                    <option value="철골">철골</option>
+                </select>
+            </div>
+            <label class="flex items-start gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 cursor-pointer">
+                <input type="checkbox" id="legal-agree" required class="mt-0.5 h-4 w-4 rounded border-slate-300 text-[#1a237e] focus:ring-blue-500">
+                <span class="text-xs text-slate-600 leading-relaxed">
+                    위 <strong>참고용 안내(법률 자문 아님)</strong>을 확인했으며, 최종 적용은 관할 관청 확인이 필요함을 이해합니다.
+                </span>
+            </label>
+            <button type="submit" id="btn-diag"
+                class="w-full rounded-xl bg-[#1a237e] text-white font-bold py-3.5 hover:bg-[#2a4f96] transition-colors disabled:opacity-60">
+                내 땅 진단하기
+            </button>
+        </form>
+
+        <div id="state-loading" class="hidden text-center py-8 text-slate-500 text-sm">진단 중… (수 초 소요)</div>
+        <div id="state-error" class="hidden rounded-xl bg-red-50 border border-red-100 text-red-700 px-4 py-3 text-sm"></div>
+
+        <section id="result" class="hidden bg-white rounded-2xl border-2 border-[#c9a227]/40 shadow-md p-6 space-y-4">
+            <p class="text-xs font-bold text-[#c9a227] uppercase tracking-wider">진단 결과 (참고용)</p>
+            <p class="text-xs font-bold text-red-700 bg-red-50 border border-red-100 rounded-lg px-3 py-2">
+                ⚠ 법률 자문이 아닙니다. 관할 시청·군청 확인이 우선입니다.
+            </p>
+            <pre id="result-text" class="whitespace-pre-wrap text-sm leading-relaxed text-slate-800 font-[inherit]"></pre>
+            <div class="flex flex-wrap gap-3 pt-2">
+                <a id="result-pdf" href="#" target="_blank" rel="noopener" class="hidden text-sm font-bold text-[#1a237e] underline underline-offset-4">PDF 열기</a>
+                <a href="estimate.html" class="text-sm font-bold text-slate-600 underline underline-offset-4">1차 예산 가이드</a>
+                <a href="consult.html" class="text-sm font-bold text-slate-600 underline underline-offset-4">건축 상담 신청</a>
+            </div>
+        </section>
+    </main>
+
+    <script src="/js/webhook-guard.js"></script>
+    <script>
+(function () {
+  var form = document.getElementById('land-form');
+  var loading = document.getElementById('state-loading');
+  var errBox = document.getElementById('state-error');
+  var result = document.getElementById('result');
+  var resultText = document.getElementById('result-text');
+  var resultPdf = document.getElementById('result-pdf');
+  var btn = document.getElementById('btn-diag');
+
+  function show(el, on) {
+    el.classList.toggle('hidden', !on);
+  }
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    var address = document.getElementById('address').value.trim();
+    var structure = document.getElementById('structure').value;
+    if (!address || address.length < 6) {
+      show(errBox, true);
+      errBox.textContent = '주소를 조금 더 구체적으로 입력해 주세요.';
+      return;
+    }
+    if (window.JUWebhookGuard && !window.JUWebhookGuard.checkRateLimit('page_land', 8, 600000)) {
+      show(errBox, true);
+      errBox.textContent = '요청이 너무 잦아요. 잠시 후 다시 시도해 주세요.';
+      return;
+    }
+
+    show(errBox, false);
+    show(result, false);
+    show(loading, true);
+    btn.disabled = true;
+
+    var payload = {
+      address: address,
+      structure: structure,
+      channel: 'public',
+      rate_limit_key: 'web-land-page',
+      pdf: true,
+    };
+    if (window.JUWebhookGuard) {
+      payload = window.JUWebhookGuard.enrichPayload(payload);
+    }
+
+    try {
+      var res = await fetch('/website/land/report', {
+        method: 'POST',
+        mode: 'same-origin',
+        credentials: 'same-origin',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      var data = await res.json().catch(function () { return {}; });
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || data.hint || ('HTTP ' + res.status));
+      }
+      var text = String(data.answer || data.text || '').trim();
+      if (!text) throw new Error('empty');
+      resultText.textContent = text;
+      if (data.pdf_url) {
+        resultPdf.href = data.pdf_url;
+        resultPdf.classList.remove('hidden');
+      } else {
+        resultPdf.classList.add('hidden');
+      }
+      show(result, true);
+      result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    } catch (err) {
+      show(errBox, true);
+      var msg = String(err && err.message || err);
+      if (msg === 'rate_limited') {
+        errBox.textContent = '요청이 너무 잦아요. 잠시 후 다시 시도해 주세요.';
+      } else if (msg.indexOf('vworld') >= 0) {
+        errBox.textContent = '지도 서비스 연결이 잠시 불안정합니다. 잠시 후 다시 시도해 주세요.';
+      } else {
+        errBox.textContent = '주소를 찾지 못했거나 진단에 실패했습니다. 도로명·지번을 다시 확인해 주세요.';
+      }
+    } finally {
+      show(loading, false);
+      btn.disabled = false;
+    }
+  });
+})();
+    </script>
+</body>
+</html>

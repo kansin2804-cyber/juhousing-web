@@ -7,6 +7,9 @@
   var CONSULT_URL = wh.blogConsult;
   var SMS_HREF = 'sms:010-2951-0431';
   var PHONE_DISPLAY = '010-2951-0431';
+  var LAND_REPORT_URL = '/website/land/report';
+  var LAND_DISCLAIMER =
+    '내 땅 진단입니다. 주소를 알려주시면 용도지역·건폐/용적·인허가 순서를 참고용으로 정리해 드려요. 법률 자문이 아닙니다.';
 
   var STEPS = [
     { key: '성함', label: '성함 또는 업체명을 알려주세요.', field: 'name', required: true },
@@ -20,10 +23,14 @@
   var state = {
     open: false,
     mode: 'chat',
+    landDiag: false,
     stepIndex: 0,
     collected: {},
     messages: [],
     busy: false,
+    lastLandAddress: '',
+    lastLandMaxPyeong: null,
+    lastLandOk: false,
   };
 
   var root, launcher, backdrop, panel, messagesEl, chipsEl, inputEl, sendBtn;
@@ -138,7 +145,34 @@
         }
         if (label === '다시 질문하기') {
           state.mode = 'chat';
+          state.landDiag = false;
           renderDefaultChips();
+          return;
+        }
+        if (label === '내 땅 진단') {
+          setLandDiag(true);
+          return;
+        }
+        if (label === '일반 상담으로') {
+          setLandDiag(false);
+          return;
+        }
+        if (label === '진단 페이지 열기') {
+          window.location.href = '/land.html';
+          return;
+        }
+        if (label === '예산 가이드' || label === '예산 가이드 보기') {
+          var q = new URLSearchParams();
+          if (state.lastLandAddress) q.set('address', state.lastLandAddress);
+          if (state.lastLandMaxPyeong) {
+            q.set('max_pyeong', String(state.lastLandMaxPyeong));
+            q.set(
+              'pyeong',
+              String(Math.max(20, Math.min(Math.floor(Number(state.lastLandMaxPyeong)), 200)))
+            );
+          }
+          q.set('from', 'land');
+          window.location.href = '/estimate.html?' + q.toString();
           return;
         }
         inputEl.value = label;
@@ -149,7 +183,38 @@
   }
 
   function renderDefaultChips() {
-    setChips(['상담 접수하기', '비용이 궁금해요', '공기는 얼마나 걸리나요', '경량 목조가 뭔가요']);
+    if (state.landDiag) {
+      setChips(['일반 상담으로', '진단 페이지 열기', '상담 접수하기']);
+      return;
+    }
+    setChips(['내 땅 진단', '상담 접수하기', '비용이 궁금해요', '공기는 얼마나 걸리나요', '경량 목조가 뭔가요']);
+  }
+
+  function setLandDiag(on, opts) {
+    opts = opts || {};
+    var next = !!on;
+    if (state.mode === 'intake') {
+      addBubble('bot', '상담 접수 중에는 땅 진단을 시작할 수 없어요. 접수를 마친 뒤 이용해 주세요.');
+      return;
+    }
+    if (state.landDiag === next && !opts.forceMsg) {
+      renderDefaultChips();
+      return;
+    }
+    state.landDiag = next;
+    if (inputEl) {
+      inputEl.placeholder = next
+        ? '도로명 또는 지번 주소를 입력하세요…'
+        : '메시지를 입력하세요…';
+    }
+    renderDefaultChips();
+    if (opts.silent) return;
+    if (next) {
+      addBubble('system', LAND_DISCLAIMER);
+      addBubble('bot', '진단할 부지 주소를 입력해 주세요. 예: 경기도 가평군 청평면 대성리 351-3');
+    } else {
+      addBubble('system', '일반 상담 모드로 돌아왔습니다.');
+    }
   }
 
   function openChat() {
@@ -300,7 +365,63 @@
     }
   }
 
+  async function fetchLandReport(userText) {
+    showTyping();
+    try {
+      if (window.JUWebhookGuard && !window.JUWebhookGuard.checkRateLimit('chat_land', 8, 600000)) {
+        hideTyping();
+        state.lastLandOk = false;
+        return (
+          '참고 정보이며 법률 자문이 아닙니다.\n' +
+          '진단 요청이 너무 잦아요. 잠시 후 다시 시도하거나 전화 ' +
+          PHONE_DISPLAY +
+          ' 로 문의해 주세요.'
+        );
+      }
+      var payload = {
+        address: userText,
+        channel: 'public',
+        rate_limit_key: 'web-chat-land',
+        pdf: false,
+      };
+      if (window.JUWebhookGuard) {
+        payload = window.JUWebhookGuard.enrichPayload(payload);
+      }
+      var res = await fetch(LAND_REPORT_URL, {
+        method: 'POST',
+        mode: 'same-origin',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+        credentials: 'same-origin',
+      });
+      hideTyping();
+      var data = await res.json().catch(function () {
+        return {};
+      });
+      var answer = String(data.answer || data.text || '').trim();
+      if (!answer) throw new Error('empty');
+      state.lastLandAddress = String(data.address || data.input_address || userText || '').trim();
+      var buildable = data.buildable || {};
+      state.lastLandMaxPyeong = buildable.max_floor_area_pyeong || null;
+      state.lastLandOk = !!data.ok;
+      return answer;
+    } catch (err) {
+      hideTyping();
+      state.lastLandOk = false;
+      return (
+        '참고 정보이며 법률 자문이 아닙니다.\n' +
+        '주소 진단을 잠시 불러오지 못했어요. 도로명·지번을 다시 입력하거나 /land.html 에서 진단해 주세요.\n' +
+        '전화 ' +
+        PHONE_DISPLAY +
+        ' 로도 문의 가능합니다.'
+      );
+    }
+  }
+
   async function fetchBotReply(userText) {
+    if (state.landDiag) {
+      return fetchLandReport(userText);
+    }
     showTyping();
     try {
       var payload = {
@@ -354,8 +475,13 @@
 
     var reply = await fetchBotReply(text);
     addBubble('bot', reply);
-    if (/상담|접수|연락처|남겨/.test(reply)) {
-      setChips(['상담 접수하기', '비용이 궁금해요', '공기는 얼마나 걸리나요']);
+    if (state.landDiag && state.lastLandOk) {
+      setChips(['예산 가이드', '상담 접수하기', '일반 상담으로', '진단 페이지 열기']);
+      state.lastLandOk = false;
+    } else if (state.landDiag) {
+      setChips(['일반 상담으로', '진단 페이지 열기', '상담 접수하기']);
+    } else if (/상담|접수|연락처|남겨/.test(reply)) {
+      setChips(['상담 접수하기', '내 땅 진단', '비용이 궁금해요', '공기는 얼마나 걸리나요']);
     }
     state.busy = false;
     sendBtn.disabled = false;

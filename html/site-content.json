@@ -264,7 +264,9 @@
     "body": "1차 참고 견적으로 지역·평형·마감 방향을 먼저 정리합니다. 도면·상세 설계는 그다음입니다.",
     "primaryLabel": "도면 없이 1차 상담",
     "secondaryLabel": "1차 예산 가이드",
-    "secondaryHref": "/estimate.html"
+    "secondaryHref": "/estimate.html",
+    "landLabel": "내 땅 진단",
+    "landHref": "/land.html"
   },
   "finalCta": {
     "title": "다음 집은, 구조부터 다르게.",
