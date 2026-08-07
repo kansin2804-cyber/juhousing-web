@@ -191,12 +191,17 @@
             root.innerHTML = philosophy.pillars.map(function (pillar) {
                 return (
                     '<article class="ju-pillar ju-reveal is-visible">' +
-                    '<p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">' + esc(pillar.title) + '</p>' +
-                    '<h3 class="mt-3 text-xl font-bold">' + esc(pillar.ko) + '</h3>' +
-                    '<p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">' + esc(pillar.body) + '</p>' +
+                    '<p class="text-sm font-bold tracking-[0.16em] uppercase">' + esc(pillar.title) + '</p>' +
+                    '<h3 class="mt-3 text-xl font-bold text-white">' + esc(pillar.ko) + '</h3>' +
+                    '<p class="mt-3 leading-relaxed text-sm sm:text-base">' + esc(pillar.body) + '</p>' +
                     '</article>'
                 );
             }).join('');
+            root.querySelectorAll('.ju-reveal').forEach(function (el) {
+                el.classList.add('is-visible');
+                el.style.opacity = '1';
+                el.style.transform = 'none';
+            });
         }
     }
 
