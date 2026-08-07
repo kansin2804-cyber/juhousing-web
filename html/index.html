@@ -342,8 +342,10 @@
         .ju-brand-band {
             background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
         }
-        .ju-reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
-        .ju-reveal.is-visible { opacity: 1; transform: none; }
+        /* Default visible: never leave copy at opacity:0 if JS is slow/blocked */
+        .ju-reveal { opacity: 1; transform: none; transition: opacity 0.4s ease, transform 0.4s ease; }
+        html.js-reveal .ju-reveal:not(.is-visible) { opacity: 0; transform: translateY(8px); }
+        html.js-reveal .ju-reveal.is-visible { opacity: 1; transform: none; }
         .ju-pillar {
             border-top: 1px solid rgba(15, 23, 42, 0.12);
             padding-top: 1.5rem;
@@ -1448,14 +1450,16 @@
     }
 })();
     </script>
-    <script>
+        <script>
     (function () {
+        var nodes = document.querySelectorAll('.ju-reveal');
+        if (!nodes.length) return;
         if (!('IntersectionObserver' in window)) {
-            document.querySelectorAll('.ju-reveal').forEach(function (el) {
-                el.classList.add('is-visible');
-            });
+            nodes.forEach(function (el) { el.classList.add('is-visible'); });
             return;
         }
+        // Opt into hide-until-visible only when observer is active
+        document.documentElement.classList.add('js-reveal');
         var io = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -1463,8 +1467,8 @@
                     io.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-        document.querySelectorAll('.ju-reveal').forEach(function (el) { io.observe(el); });
+        }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+        nodes.forEach(function (el) { io.observe(el); });
     })();
     </script>
 
