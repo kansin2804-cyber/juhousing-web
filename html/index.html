@@ -140,8 +140,8 @@
                 color: #fff;
             }
             .ju-mobile-cta-bar__consult {
-                background: #c4a35a;
-                color: #111;
+                background: #fff;
+                color: #0f172a;
             }
             body { padding-bottom: 72px; }
             .floating-call-btn { display: none !important; }
@@ -175,7 +175,7 @@
             border: none; background: #2563eb; color: #fff; cursor: pointer;
             transition: transform 0.2s, background 0.2s; white-space: nowrap;
         }
-        .sticky-header__consult-nav:hover { background: #1d4ed8; transform: scale(1.04); }
+        .sticky-header__consult-nav:hover { background: #1d4ed8; }
 
         .sticky-header__estimate-mobile {
             display: inline-flex; align-items: center; justify-content: center;
@@ -242,44 +242,42 @@
         }
 
         .consultation-bar {
-            background: linear-gradient(135deg, #0f172a 0%, #1a2a3a 55%, #1e293b 100%);
+            background: linear-gradient(180deg, #1c1917 0%, #292524 100%);
             color: #fff; padding: 40px 20px; text-align: center; border-radius: 10px; margin-top: 30px;
         }
         .consultation-bar h3 { font-size: clamp(1.1rem, 3vw, 1.35rem); font-weight: 800; line-height: 1.45; margin: 0 0 12px; color: #fff; }
         .consultation-bar p { margin: 0 0 8px; font-size: 0.95rem; color: rgba(255, 255, 255, 0.85); line-height: 1.6; }
         .cta-button {
-            background: #c4a35a; color: #111; padding: 15px 40px; border: none; cursor: pointer;
+            background: #fff; color: #0f172a; padding: 15px 40px; border: none; cursor: pointer;
             border-radius: 30px; font-weight: 700; font-size: 15px; text-decoration: none;
-            display: inline-block; margin-top: 20px; transition: transform 0.3s, box-shadow 0.3s, background 0.2s;
-            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+            display: inline-block; margin-top: 20px; transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
         }
-        .cta-button:hover { transform: scale(1.05); background: #b8923f; }
+        .cta-button:hover { background: #f8fafc; }
         .cta-button--hero {
-            background: #c4a35a; color: #111; padding: 15px 40px; border: none; cursor: pointer;
+            background: #fff; color: #0f172a; padding: 15px 40px; border: none; cursor: pointer;
             border-radius: 9999px; font-weight: 700; font-size: 15px; text-decoration: none;
             display: inline-flex; align-items: center; justify-content: center;
-            transition: transform 0.3s, box-shadow 0.3s, background 0.2s;
-            box-shadow: 0 4px 18px rgba(196, 163, 90, 0.35);
+            transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.28);
         }
-        .cta-button--hero:hover { transform: scale(1.05); background: #b8923f; }
+        .cta-button--hero:hover { background: #f1f5f9; }
         .cta-button--ghost {
             background: transparent; color: #fff; padding: 14px 28px; border: 1.5px solid rgba(255,255,255,0.55);
             border-radius: 9999px; font-weight: 700; font-size: 15px; text-decoration: none;
             display: inline-flex; align-items: center; justify-content: center;
-            transition: background 0.2s, border-color 0.2s, transform 0.2s;
+            transition: background 0.2s, border-color 0.2s;
         }
-        .cta-button--ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-1px); }
+        .cta-button--ghost:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
         .consultation-bar__secondary { display: block; margin-top: 14px; font-size: 0.9rem; }
         .consultation-bar__secondary a,
         .consultation-bar__text-btn { color: #93c5fd; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; background: none; border: none; cursor: pointer; font-size: inherit; padding: 0; }
         .consultation-bar__text-btn:hover { color: #bfdbfe; }
 
         .ju-brand-band {
-            background:
-                radial-gradient(1200px 400px at 10% 0%, rgba(196,163,90,0.12), transparent 60%),
-                linear-gradient(180deg, #f8f7f4 0%, #f1efe9 100%);
+            background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
         }
-        .ju-reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .ju-reveal { opacity: 0; transform: translateY(8px); transition: opacity 0.4s ease, transform 0.4s ease; }
         .ju-reveal.is-visible { opacity: 1; transform: none; }
         .ju-pillar {
             border-top: 1px solid rgba(15, 23, 42, 0.12);
@@ -287,14 +285,14 @@
         }
         .ju-cta-panel {
             background:
-                linear-gradient(135deg, rgba(15,23,42,0.92), rgba(30,41,59,0.88)),
+                linear-gradient(180deg, rgba(28,25,23,0.82), rgba(28,25,23,0.88)),
                 url('images/hero_main.webp') center/cover no-repeat;
             color: #fff;
         }
     </style>
-    <script defer src="js/site-render.js?v=20260806a"></script>
+    <script defer src="js/site-render.js?v=20260807b"></script>
 </head>
-<body class="bg-gray-50 text-gray-800 antialiased font-sans selection:bg-blue-600 selection:text-white relative sticky-header-offset">
+<body class="bg-gray-50 text-gray-800 antialiased font-sans selection:bg-stone-800 selection:text-white relative sticky-header-offset">
 
     <!-- Navigation (Glassmorphism 적용) -->
     <header class="sticky-header" role="banner">
@@ -306,7 +304,7 @@
                      class="h-14 w-auto shrink-0 object-contain select-none pointer-events-none"
                      decoding="async" />
                 <div class="text-2xl font-extrabold tracking-tight text-slate-900 sticky-header__brand-text">
-                    <span class="text-[#D4AF37]">JU</span> <span class="text-blue-600">HOUSING</span>
+                    <span class="text-slate-900">JU HOUSING</span>
                 </div>
             </div>
         </a>
@@ -360,27 +358,27 @@
                 onload="console.log('[hero image] loaded:', this.currentSrc)"
                 onerror="console.log('[hero image] load failed — check Network tab', this.src, '(resolve path relative to index.html folder)')"
             />
-            <div class="absolute inset-0 bg-slate-900/70 bg-blend-multiply"></div>
+            <div class="absolute inset-0 bg-stone-950/55"></div>
         </div>
 
         <!-- Hero 콘텐츠 -->
         <div class="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center ju-reveal is-visible">
-            <p class="text-[#D4AF37] text-sm sm:text-base font-bold tracking-[0.18em] uppercase mb-4">제이유 하우징</p>
-            <span class="inline-block py-1 px-3 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white/95 text-xs sm:text-sm font-semibold tracking-wide mb-5 sm:mb-6">
-                <span id="ju-hero-badge">제이유 하우징 · 북미식 경량 목조</span>
+            <p class="text-white text-lg sm:text-xl md:text-2xl font-extrabold tracking-[0.08em] mb-5 sm:mb-6">제이유 하우징</p>
+            <span class="inline-block py-1 px-3 rounded-full bg-white/10 border border-white/20 text-white/90 text-xs sm:text-sm font-semibold tracking-wide mb-6 sm:mb-8">
+                <span id="ju-hero-badge">북미식 경량 목조 · 2x6</span>
             </span>
-            <h1 class="text-balance text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-5 sm:mb-6 leading-[1.15] sm:leading-tight drop-shadow-lg"><span id="ju-hero-title">정밀한 골조가,
-집이 오래가는 이유를 만듭니다</span></h1>
-            <p class="text-base sm:text-lg md:text-2xl text-gray-200 mb-8 sm:mb-10 font-light max-w-3xl mx-auto leading-relaxed drop-shadow-md"><span id="ju-hero-subtitle">2x6 정밀 골조. 기밀·단열을 설계하고, 공정과 원가를 끝까지 공개합니다.</span></p>
+            <h1 class="text-balance text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-white tracking-tight mb-6 sm:mb-8 leading-[1.12] sm:leading-tight"><span id="ju-hero-title">골조가 정밀하면,
+집이 오래갑니다</span></h1>
+            <p class="text-base sm:text-lg md:text-xl text-white/85 mb-10 sm:mb-12 font-normal max-w-2xl mx-auto leading-relaxed"><span id="ju-hero-subtitle">2x6 정밀 골조. 기밀·단열·공정·원가를 처음부터 공개합니다.</span></p>
 
             <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-stretch sm:items-center max-w-lg sm:max-w-none mx-auto">
                 <button type="button"
                    data-consult-open
                    id="ju-hero-primary-cta"
                    data-cta-placement="hero"
-                   aria-label="건축 상담 신청 모달 열기"
-                   class="cta-button--hero w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4a35a] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/80">
-                    건축 상담 신청
+                   aria-label="도면 없이 1차 상담 모달 열기"
+                   class="cta-button--hero w-full sm:w-auto focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900/80">
+                    도면 없이 1차 상담
                 </button>
                 <a href="#philosophy-section"
                    id="ju-hero-secondary-cta"
@@ -394,39 +392,39 @@
     </section>
 
     <!-- About / 회사 소개 -->
-    <section id="about-section" class="ju-brand-band border-t border-stone-200/80 py-20 sm:py-24 lg:py-28" aria-labelledby="ju-about-title">
+    <section id="about-section" class="ju-brand-band border-t border-stone-200/80 py-24 sm:py-28 lg:py-32" aria-labelledby="ju-about-title">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="grid lg:grid-cols-12 gap-10 lg:gap-14 items-center">
                 <div class="lg:col-span-6 ju-reveal">
-                    <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#8a7340] mb-3" id="ju-about-label">About JU</p>
+                    <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-slate-500 mb-4" id="ju-about-label">About JU</p>
                     <h2 id="ju-about-title" class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-slate-900 tracking-tight leading-tight text-balance whitespace-pre-line">집을 파는 회사가 아니라,
 구조를 책임지는 시공 브랜드입니다</h2>
                     <p id="ju-about-body" class="mt-6 text-base sm:text-lg text-slate-600 leading-relaxed max-w-xl">제이유 하우징은 근교·교외 단독·전원주택을 중심으로, 상담부터 견적·설계·시공까지 한 흐름으로 이어갑니다. 보이는 마감보다 보이지 않는 골조·기밀·방수의 완성도를 먼저 설계합니다.</p>
                     <ul id="ju-about-points" class="mt-8 space-y-5">
                         <li class="flex gap-4">
-                            <span class="mt-1 h-2 w-2 rounded-full bg-[#c4a35a] shrink-0" aria-hidden="true"></span>
+                            <span class="mt-1 h-2 w-2 rounded-full bg-slate-400 shrink-0" aria-hidden="true"></span>
                             <div>
                                 <p class="font-bold text-slate-900">정밀 골조</p>
                                 <p class="text-sm sm:text-base text-slate-600 mt-1">2x6 스터드 + OSB + platform framing으로 뼈대를 세웁니다.</p>
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <span class="mt-1 h-2 w-2 rounded-full bg-[#c4a35a] shrink-0" aria-hidden="true"></span>
+                            <span class="mt-1 h-2 w-2 rounded-full bg-slate-400 shrink-0" aria-hidden="true"></span>
                             <div>
                                 <p class="font-bold text-slate-900">투명 공정</p>
                                 <p class="text-sm sm:text-base text-slate-600 mt-1">골조→지붕→외장 순서를 건축주가 이해할 수 있게 공유합니다.</p>
                             </div>
                         </li>
                         <li class="flex gap-4">
-                            <span class="mt-1 h-2 w-2 rounded-full bg-[#c4a35a] shrink-0" aria-hidden="true"></span>
+                            <span class="mt-1 h-2 w-2 rounded-full bg-slate-400 shrink-0" aria-hidden="true"></span>
                             <div>
                                 <p class="font-bold text-slate-900">로컬 대응</p>
                                 <p class="text-sm sm:text-base text-slate-600 mt-1">한국 현장·한국인 팀이 시공과 유지보수를 이어갑니다.</p>
                             </div>
                         </li>
                     </ul>
-                    <div class="mt-9">
-                        <button type="button" data-consult-open data-cta-placement="about" id="ju-about-cta" class="inline-flex items-center justify-center rounded-full bg-slate-900 px-6 py-3 text-sm font-bold text-white hover:bg-slate-800 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-slate-900 focus-visible:ring-offset-2">상담으로 이어가기</button>
+                    <div class="mt-12">
+                        <a href="#philosophy-section" id="ju-about-cta" class="text-sm font-semibold text-slate-700 underline underline-offset-4 decoration-slate-300 hover:decoration-slate-700">시공 철학 보기</a>
                     </div>
                 </div>
                 <div class="lg:col-span-6 ju-reveal">
@@ -440,34 +438,31 @@
     </section>
 
     <!-- Philosophy / 시공 철학 -->
-    <section id="philosophy-section" class="bg-slate-950 text-white py-20 sm:py-24 lg:py-28" aria-labelledby="ju-philosophy-title">
+    <section id="philosophy-section" class="bg-stone-900 text-white py-24 sm:py-28 lg:py-32" aria-labelledby="ju-philosophy-title">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
             <div class="max-w-3xl ju-reveal">
-                <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-[#c4a35a] mb-3" id="ju-philosophy-label">Philosophy</p>
+                <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-stone-400 mb-4" id="ju-philosophy-label">Philosophy</p>
                 <h2 id="ju-philosophy-title" class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-tight text-balance">우리는 집을 장식이 아니라 구조로 짓습니다</h2>
                 <p id="ju-philosophy-subtitle" class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">시공 철학 세 가지. 스펙 나열이 아니라, 집을 오래가게 하는 원칙입니다.</p>
             </div>
             <div id="ju-philosophy-pillars" class="mt-14 grid md:grid-cols-3 gap-10 md:gap-8">
                 <article class="ju-pillar ju-reveal">
-                    <p class="text-[#c4a35a] text-sm font-bold tracking-[0.16em] uppercase">Structure</p>
+                    <p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">Structure</p>
                     <h3 class="mt-3 text-xl font-bold">정밀 골조</h3>
                     <p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">2x6 스터드, OSB, platform framing. 북미식 경량 목조의 기본을 흔들림 없이 지킵니다.</p>
                 </article>
                 <article class="ju-pillar ju-reveal">
-                    <p class="text-[#c4a35a] text-sm font-bold tracking-[0.16em] uppercase">Envelope</p>
+                    <p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">Envelope</p>
                     <h3 class="mt-3 text-xl font-bold">기후 외피</h3>
                     <p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">세라믹·섬유시멘트 사이딩과 스탠딩심 메탈 지붕으로 한국 사계절에 맞춥니다.</p>
                 </article>
                 <article class="ju-pillar ju-reveal">
-                    <p class="text-[#c4a35a] text-sm font-bold tracking-[0.16em] uppercase">Trust</p>
+                    <p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">Trust</p>
                     <h3 class="mt-3 text-xl font-bold">공정 신뢰</h3>
                     <p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">원가와 공정을 공개해 건축주의 불안을 줄입니다. 약속은 현장 조건과 함께 말합니다.</p>
                 </article>
             </div>
-            <p id="ju-philosophy-note" class="mt-10 text-sm text-slate-400 ju-reveal">한옥·중목·통나무집이 아닙니다. 북미식 경량 목조주택 전문입니다.</p>
-            <div class="mt-8 ju-reveal">
-                <button type="button" data-consult-open data-cta-placement="philosophy" id="ju-philosophy-cta" class="inline-flex items-center justify-center rounded-full bg-[#c4a35a] px-6 py-3 text-sm font-bold text-slate-950 hover:bg-[#b8923f] transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-[#c4a35a] focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950">내 땅에 맞는 건축 상담</button>
-            </div>
+            <p id="ju-philosophy-note" class="mt-14 text-sm text-stone-400 ju-reveal">한옥·중목·통나무집이 아닙니다. 북미식 경량 목조주택 전문입니다.</p>
         </div>
     </section>
 
@@ -475,12 +470,12 @@
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-[#8a7340] font-bold tracking-wide uppercase text-sm mb-2" id="ju-competencies-label">Craft</h2>
+                <h2 class="text-slate-500 font-bold tracking-wide uppercase text-sm mb-3" id="ju-competencies-label">Craft</h2>
                 <h3 class="text-4xl font-extrabold text-slate-900" id="ju-competencies-title">현장에서 증명하는 시공 기준</h3>
             </div>
 
             <!-- ssr:cards:start -->
-<div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/framing-detail.html" target="_blank" rel="noopener noreferrer" aria-label="데이터 기반 정밀 프레이밍 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_hy77qthy77qthy77.webp" alt="북미산 SPF 구조목 품질" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">01</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">정밀 엔지니어링 프레이밍 (±0.5mm 이하 제어)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">주택의 긴 수명은 골조의 미세 오차 제어에서 시작됩니다. 제이유 하우징은 3D 레이저 거리측정기와 디지털 정밀 수평계를 사용하여 프레이밍 오차를 ±0.5mm 이하로 관리합니다. 뒤틀림과 균열이 전혀 없는 대대손손 대물림할 수 있는 견고한 뼈대를 시공합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/exterior-detail.html" target="_blank" rel="noopener noreferrer" aria-label="하이엔드 외장 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="모던 외장재" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">02</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">세라믹 &amp; 리얼징크 클래드 (유지보수 프리)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">자외선과 습기, 오염에 강한 프리미엄 외장 엔벨로프 설계. 16mm 최고급 세라믹 사이딩과 리얼 징크 외장 공법을 결합하여 한국의 사계절 기후 변화와 결로 현상으로부터 주택을 보호합니다. 비바람에 스스로 오염을 세척하는 자정 성능으로 언제나 신축의 품격을 유지합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl"><a href="/financial-detail.html" target="_blank" rel="noopener noreferrer" aria-label="JU 투명 정산 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_r5kdlzr5kdlzr5kd.webp" alt="JU 투명 정산 시스템" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">03</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">실시간 원가 정산 시스템 (공사비 추가 없음)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">건축 중 예상치 못한 공사비 추가 요구로 인한 스트레스를 완벽히 예방합니다. 제이유 하우징만의 투명한 실시간 원가 정산 트래커를 운영하여, 투입되는 모든 자재비와 외주 노무비를 실시간 건축주에게 상세히 공유하여 신뢰와 투명성의 파트너십을 실천합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div>
+<div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><a href="/framing-detail.html" target="_blank" rel="noopener noreferrer" aria-label="데이터 기반 정밀 프레이밍 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_hy77qthy77qthy77.webp" alt="북미산 SPF 구조목 품질" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-opacity duration-300" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">01</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">정밀 엔지니어링 프레이밍 (±0.5mm 이하 제어)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">주택의 긴 수명은 골조의 미세 오차 제어에서 시작됩니다. 제이유 하우징은 3D 레이저 거리측정기와 디지털 정밀 수평계를 사용하여 프레이밍 오차를 ±0.5mm 이하로 관리합니다. 뒤틀림과 균열이 전혀 없는 대대손손 대물림할 수 있는 견고한 뼈대를 시공합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><a href="/exterior-detail.html" target="_blank" rel="noopener noreferrer" aria-label="하이엔드 외장 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="h-56 overflow-hidden"><img src="https://images.unsplash.com/photo-1600607688969-a5bfcd646154?q=80&amp;w=800&amp;auto=format&amp;fit=crop" alt="모던 외장재" class="w-full h-full object-cover transition-opacity duration-300" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">02</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">세라믹 &amp; 리얼징크 클래드 (유지보수 프리)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">자외선과 습기, 오염에 강한 프리미엄 외장 엔벨로프 설계. 16mm 최고급 세라믹 사이딩과 리얼 징크 외장 공법을 결합하여 한국의 사계절 기후 변화와 결로 현상으로부터 주택을 보호합니다. 비바람에 스스로 오염을 세척하는 자정 성능으로 언제나 신축의 품격을 유지합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div><div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><a href="/financial-detail.html" target="_blank" rel="noopener noreferrer" aria-label="JU 투명 정산 시스템 상세 보기 — 새 탭" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none"><div class="relative h-56 overflow-hidden"><img src="public/assets/Gemini_Generated_Image_r5kdlzr5kdlzr5kd.webp" alt="JU 투명 정산 시스템" class="h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-opacity duration-300" decoding="async" /></div><div class="flex flex-1 flex-col px-8 pb-2 pt-8"><div class="text-blue-600 font-black text-4xl mb-4 opacity-50 group-hover:opacity-100 transition-opacity">03</div><h4 class="text-xl sm:text-2xl font-bold mb-3 text-slate-900 text-balance leading-snug tracking-tight">실시간 원가 정산 시스템 (공사비 추가 없음)</h4><p class="text-sm sm:text-base text-gray-600 leading-relaxed text-pretty">건축 중 예상치 못한 공사비 추가 요구로 인한 스트레스를 완벽히 예방합니다. 제이유 하우징만의 투명한 실시간 원가 정산 트래커를 운영하여, 투입되는 모든 자재비와 외주 노무비를 실시간 건축주에게 상세히 공유하여 신뢰와 투명성의 파트너십을 실천합니다.</p></div></a><div class="mt-auto px-8 pb-7 pt-2"><p class="text-xs font-medium text-slate-500">상세 스펙은 카드에서 확인하세요.</p></div></div>
 <!-- ssr:cards:end -->
         </div>
     </section>
@@ -494,7 +489,7 @@
                 <p id="ju-portfolio-subtitle" class="mt-4 text-base sm:text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed text-pretty"></p>
             </div>
             <!-- ssr:portfolio:start -->
-<article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-01.webp" alt="가평 산중 모던 전원주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">가평<span class="text-slate-600 font-semibold"> : 산중 모던 전원주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-02.webp" alt="평창 솔라 패널 친환경 주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">평창<span class="text-slate-600 font-semibold"> : 솔라 패널 친환경 주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-03.webp" alt="횡성 산자락 단층 주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">횡성<span class="text-slate-600 font-semibold"> : 산자락 단층 주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-04.webp" alt="여주 숲 품은 목구조 하우스" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">여주<span class="text-slate-600 font-semibold"> : 숲 품은 목구조 하우스</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-05.webp" alt="이천 테라스형 모던 전원주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">이천<span class="text-slate-600 font-semibold"> : 테라스형 모던 전원주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-06.webp" alt="부여 대창 미니멀 하우스" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">부여<span class="text-slate-600 font-semibold"> : 대창 미니멀 하우스</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-07.webp" alt="태안 석재월 정원 단독주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">태안<span class="text-slate-600 font-semibold"> : 석재월 정원 단독주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-08.webp" alt="군위 태양광 산속 주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">군위<span class="text-slate-600 font-semibold"> : 태양광 산속 주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-09.webp" alt="완주 자연 친화 포치형 주택" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">완주<span class="text-slate-600 font-semibold"> : 자연 친화 포치형 주택</span></h4></div></article>
+<article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-01.webp" alt="가평 산중 모던 전원주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">가평<span class="text-slate-600 font-semibold"> : 산중 모던 전원주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-02.webp" alt="평창 솔라 패널 친환경 주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">평창<span class="text-slate-600 font-semibold"> : 솔라 패널 친환경 주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-03.webp" alt="횡성 산자락 단층 주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">횡성<span class="text-slate-600 font-semibold"> : 산자락 단층 주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-04.webp" alt="여주 숲 품은 목구조 하우스" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">여주<span class="text-slate-600 font-semibold"> : 숲 품은 목구조 하우스</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-05.webp" alt="이천 테라스형 모던 전원주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">이천<span class="text-slate-600 font-semibold"> : 테라스형 모던 전원주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-06.webp" alt="부여 대창 미니멀 하우스" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">부여<span class="text-slate-600 font-semibold"> : 대창 미니멀 하우스</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-07.webp" alt="태안 석재월 정원 단독주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">태안<span class="text-slate-600 font-semibold"> : 석재월 정원 단독주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-08.webp" alt="군위 태양광 산속 주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">군위<span class="text-slate-600 font-semibold"> : 태양광 산속 주택</span></h4></div></article><article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:shadow-md"><div class="relative aspect-[4/3] overflow-hidden bg-slate-100"><img src="images/portfolio/portfolio-09.webp" alt="완주 자연 친화 포치형 주택" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" /></div><div class="px-5 py-4 sm:px-6 sm:py-5"><h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">완주<span class="text-slate-600 font-semibold"> : 자연 친화 포치형 주택</span></h4></div></article>
 <!-- ssr:portfolio:end -->
         </div>
     </section>
@@ -831,7 +826,7 @@
             <!-- 회사 정보 및 연락처 추가 -->
             <div class="mb-8 md:mb-0">
                 <div class="text-2xl font-extrabold tracking-tight text-white mb-4">
-                    <span class="text-[#D4AF37]">JU</span> <span class="text-blue-400">HOUSING</span>
+                    <span class="text-white">JU HOUSING</span>
                 </div>
                 <p class="text-slate-400 max-w-sm mx-auto md:mx-0 mb-6"><span id="ju-footer-tagline">북미식 경량 목조. 정밀한 골조와 투명한 공정으로 짓습니다.<br>건축주의 신뢰를 구조로 증명하는 시공 파트너.</span></p>
                 <div class="text-slate-300 text-sm space-y-2">

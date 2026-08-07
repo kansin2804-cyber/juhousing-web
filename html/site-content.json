@@ -50,10 +50,10 @@
   "hero": {
     "image": "images/hero_main.webp",
     "imageAlt": "제이유 하우징 북미식 경량 목조주택 전경",
-    "badge": "제이유 하우징 · 북미식 경량 목조",
-    "title": "정밀한 골조가,\n집이 오래가는 이유를 만듭니다",
-    "subtitle": "2x6 정밀 골조. 기밀·단열을 설계하고, 공정과 원가를 끝까지 공개합니다.",
-    "primaryCta": "건축 상담 신청",
+    "badge": "북미식 경량 목조 · 2x6",
+    "title": "골조가 정밀하면,\n집이 오래갑니다",
+    "subtitle": "2x6 정밀 골조. 기밀·단열·공정·원가를 처음부터 공개합니다.",
+    "primaryCta": "도면 없이 1차 상담",
     "secondaryCta": "시공 철학 보기",
     "secondaryHref": "#philosophy-section"
   },
@@ -215,7 +215,7 @@
         "body": "한국 현장·한국인 팀이 시공과 유지보수를 이어갑니다."
       }
     ],
-    "ctaLabel": "상담으로 이어가기",
+    "ctaLabel": "시공 철학 보기",
     "image": "public/assets/Gemini_Generated_Image_hy77qthy77qthy77.webp",
     "imageAlt": "제이유 하우징 경량 목조 골조 시공"
   },
