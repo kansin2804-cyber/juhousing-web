@@ -342,13 +342,22 @@
         .ju-brand-band {
             background: linear-gradient(180deg, #fafafa 0%, #f4f4f5 100%);
         }
-        /* Default visible: never leave copy at opacity:0 if JS is slow/blocked */
-        .ju-reveal { opacity: 1; transform: none; transition: opacity 0.4s ease, transform 0.4s ease; }
-        html.js-reveal .ju-reveal:not(.is-visible) { opacity: 0; transform: translateY(8px); }
-        html.js-reveal .ju-reveal.is-visible { opacity: 1; transform: none; }
+        /* Always visible — reveal animation must never leave copy transparent */
+        .ju-reveal { opacity: 1; transform: none; }
         .ju-pillar {
-            border-top: 1px solid rgba(15, 23, 42, 0.12);
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
             padding-top: 1.5rem;
+        }
+        #philosophy-section .ju-pillar > p:first-child {
+            color: #d6d3d1; /* stone-300 — readable on stone-900 */
+        }
+        #philosophy-section .ju-pillar > p:last-child,
+        #ju-philosophy-subtitle {
+            color: #e7e5e4; /* stone-200 */
+        }
+        #ju-philosophy-note {
+            color: #a8a29e; /* stone-400 but ensure opacity 1 */
+            opacity: 1;
         }
         .ju-cta-panel {
             background:
@@ -505,29 +514,29 @@
     <!-- Philosophy / 시공 철학 -->
     <section id="philosophy-section" class="bg-stone-900 text-white py-24 sm:py-28 lg:py-32" aria-labelledby="ju-philosophy-title">
         <div class="max-w-7xl mx-auto px-5 sm:px-8">
-            <div class="max-w-3xl ju-reveal">
-                <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-stone-400 mb-4" id="ju-philosophy-label">Philosophy</p>
-                <h2 id="ju-philosophy-title" class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-tight text-balance">우리는 집을 장식이 아니라 구조로 짓습니다</h2>
-                <p id="ju-philosophy-subtitle" class="mt-5 text-base sm:text-lg text-slate-300 leading-relaxed">시공 철학 세 가지. 스펙 나열이 아니라, 집을 오래가게 하는 원칙입니다.</p>
+            <div class="max-w-3xl ju-reveal is-visible">
+                <p class="text-xs sm:text-sm font-bold tracking-[0.2em] uppercase text-stone-300 mb-4" id="ju-philosophy-label">Philosophy</p>
+                <h2 id="ju-philosophy-title" class="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold tracking-tight leading-tight text-balance text-white">우리는 집을 장식이 아니라 구조로 짓습니다</h2>
+                <p id="ju-philosophy-subtitle" class="mt-5 text-base sm:text-lg leading-relaxed">시공 철학 세 가지. 스펙 나열이 아니라, 집을 오래가게 하는 원칙입니다.</p>
             </div>
             <div id="ju-philosophy-pillars" class="mt-14 grid md:grid-cols-3 gap-10 md:gap-8">
-                <article class="ju-pillar ju-reveal">
-                    <p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">Structure</p>
+                <article class="ju-pillar ju-reveal is-visible">
+                    <p class="text-sm font-bold tracking-[0.16em] uppercase">Structure</p>
                     <h3 class="mt-3 text-xl font-bold">정밀 골조</h3>
-                    <p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">2x6 스터드, OSB, platform framing. 북미식 경량 목조의 기본을 흔들림 없이 지킵니다.</p>
+                    <p class="mt-3 leading-relaxed text-sm sm:text-base">2x6 스터드, OSB, platform framing. 북미식 경량 목조의 기본을 흔들림 없이 지킵니다.</p>
                 </article>
-                <article class="ju-pillar ju-reveal">
-                    <p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">Envelope</p>
+                <article class="ju-pillar ju-reveal is-visible">
+                    <p class="text-sm font-bold tracking-[0.16em] uppercase">Envelope</p>
                     <h3 class="mt-3 text-xl font-bold">기후 외피</h3>
-                    <p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">세라믹·섬유시멘트 사이딩과 스탠딩심 메탈 지붕으로 한국 사계절에 맞춥니다.</p>
+                    <p class="mt-3 leading-relaxed text-sm sm:text-base">세라믹·섬유시멘트 사이딩과 스탠딩심 메탈 지붕으로 한국 사계절에 맞춥니다.</p>
                 </article>
-                <article class="ju-pillar ju-reveal">
-                    <p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">Trust</p>
+                <article class="ju-pillar ju-reveal is-visible">
+                    <p class="text-sm font-bold tracking-[0.16em] uppercase">Trust</p>
                     <h3 class="mt-3 text-xl font-bold">공정 신뢰</h3>
-                    <p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">원가와 공정을 공개해 건축주의 불안을 줄입니다. 약속은 현장 조건과 함께 말합니다.</p>
+                    <p class="mt-3 leading-relaxed text-sm sm:text-base">원가와 공정을 공개해 건축주의 불안을 줄입니다. 약속은 현장 조건과 함께 말합니다.</p>
                 </article>
             </div>
-            <p id="ju-philosophy-note" class="mt-14 text-sm text-stone-400 ju-reveal">한옥·중목·통나무집이 아닙니다. 북미식 경량 목조주택 전문입니다.</p>
+            <p id="ju-philosophy-note" class="mt-14 text-sm ju-reveal is-visible">한옥·중목·통나무집이 아닙니다. 북미식 경량 목조주택 전문입니다.</p>
         </div>
     </section>
 
@@ -1452,23 +1461,12 @@
     </script>
         <script>
     (function () {
-        var nodes = document.querySelectorAll('.ju-reveal');
-        if (!nodes.length) return;
-        if (!('IntersectionObserver' in window)) {
-            nodes.forEach(function (el) { el.classList.add('is-visible'); });
-            return;
-        }
-        // Opt into hide-until-visible only when observer is active
-        document.documentElement.classList.add('js-reveal');
-        var io = new IntersectionObserver(function (entries) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    io.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
-        nodes.forEach(function (el) { io.observe(el); });
+        // Failsafe: mark all reveal nodes visible. Do not toggle opacity via JS.
+        document.querySelectorAll('.ju-reveal').forEach(function (el) {
+            el.classList.add('is-visible');
+            el.style.opacity = '1';
+            el.style.transform = 'none';
+        });
     })();
     </script>
 
