@@ -66,7 +66,7 @@
                 '</div></a>' +
                 '<div class="mt-auto border-t border-gray-100 bg-white px-8 pb-7 pt-5">' +
                 '<p class="mb-3 text-xs font-medium text-slate-500 tracking-tight">지금 무료로 상담해 보세요.</p>' +
-                '<button type="button" data-consult-open class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-blue-600/90 bg-white/90 px-3.5 py-2 text-xs font-bold text-blue-700 shadow-sm transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">건축 상담 신청</button>' +
+                '<button type="button" data-consult-open data-cta-placement="competency_card" class="inline-flex w-full sm:w-auto items-center justify-center rounded-full border border-blue-600/90 bg-white/90 px-3.5 py-2 text-xs font-bold text-blue-700 shadow-sm transition-all hover:bg-blue-600 hover:text-white hover:border-blue-600 hover:shadow focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2">건축 상담 신청</button>' +
                 '</div></div>'
             );
         }).join('');
