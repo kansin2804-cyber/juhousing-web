@@ -1,7 +1,7 @@
 (function () {
     'use strict';
 
-    var CONTENT_URL = 'site-content.json?v=20260806a';
+    var CONTENT_URL = 'site-content.json?v=20260807b';
     var CHEVRON_SVG = '<svg class="faq-chevron size-5 shrink-0 text-slate-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="m19 9-7 7-7-7" /></svg>';
 
     function esc(text) {
@@ -51,10 +51,10 @@
                 ? 'h-56 overflow-hidden'
                 : 'relative h-56 overflow-hidden';
             var imgClass = card.number === '02'
-                ? 'w-full h-full object-cover group-hover:scale-110 transition-transform duration-700'
-                : 'h-full w-full origin-top-left scale-105 object-cover object-[18%_12%] transition-transform duration-700 ease-out group-hover:scale-110';
+                ? 'w-full h-full object-cover'
+                : 'h-full w-full origin-top-left scale-105 object-cover object-[18%_12%]';
             return (
-                '<div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] hover:shadow-2xl">' +
+                '<div class="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">' +
                 '<a href="' + esc(card.link) + '" target="_blank" rel="noopener noreferrer" aria-label="' + esc(card.linkLabel) + '" class="flex min-h-0 flex-1 flex-col text-inherit no-underline focus:outline-none">' +
                 '<div class="' + imgWrapClass + '">' +
                 '<img src="' + esc(card.image) + '" alt="' + esc(card.imageAlt) + '" class="' + imgClass + '" decoding="async" />' +
@@ -83,9 +83,9 @@
                 title += '<span class="text-slate-600 font-semibold"> : ' + esc(item.subtitle) + '</span>';
             }
             return (
-                '<article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-all duration-500 hover:-translate-y-1 hover:shadow-xl">' +
+                '<article class="group overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow duration-300 hover:shadow-md">' +
                 '<div class="relative aspect-[4/3] overflow-hidden bg-slate-100">' +
-                '<img src="' + esc(item.image) + '" alt="' + esc(item.imageAlt || item.siteName) + '" class="h-full w-full object-cover object-[46%_44%] scale-[1.09] origin-center transition-transform duration-700 group-hover:scale-[1.14]" loading="lazy" decoding="async" />' +
+                '<img src="' + esc(item.image) + '" alt="' + esc(item.imageAlt || item.siteName) + '" class="h-full w-full object-cover object-[46%_44%] origin-center" loading="lazy" decoding="async" />' +
                 '</div>' +
                 '<div class="px-5 py-4 sm:px-6 sm:py-5">' +
                 '<h4 class="text-lg sm:text-xl font-bold text-slate-900 tracking-tight">' + title + '</h4>' +
@@ -171,7 +171,7 @@
             root.innerHTML = about.points.map(function (point) {
                 return (
                     '<li class="flex gap-4">' +
-                    '<span class="mt-1 h-2 w-2 rounded-full bg-[#c4a35a] shrink-0" aria-hidden="true"></span>' +
+                    '<span class="mt-1 h-2 w-2 rounded-full bg-slate-400 shrink-0" aria-hidden="true"></span>' +
                     '<div><p class="font-bold text-slate-900">' + esc(point.title) + '</p>' +
                     '<p class="text-sm sm:text-base text-slate-600 mt-1">' + esc(point.body) + '</p></div></li>'
                 );
@@ -191,7 +191,7 @@
             root.innerHTML = philosophy.pillars.map(function (pillar) {
                 return (
                     '<article class="ju-pillar ju-reveal is-visible">' +
-                    '<p class="text-[#c4a35a] text-sm font-bold tracking-[0.16em] uppercase">' + esc(pillar.title) + '</p>' +
+                    '<p class="text-stone-400 text-sm font-bold tracking-[0.16em] uppercase">' + esc(pillar.title) + '</p>' +
                     '<h3 class="mt-3 text-xl font-bold">' + esc(pillar.ko) + '</h3>' +
                     '<p class="mt-3 text-slate-300 leading-relaxed text-sm sm:text-base">' + esc(pillar.body) + '</p>' +
                     '</article>'
