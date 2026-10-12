@@ -1,0 +1,56 @@
+# 제이유 하우징 (JU Housing)
+
+> 1mm의 정밀함으로 짓는 북미식 2x6 경량 목조주택 전문 시공사
+
+제이유 하우징은 최고급 북미산 2x6 건조 구조목(SPF KD-19%)과 3D 디지털 레이저 레벨링 공법, 그리고 100% 실시간 투명 원가 정산 시스템을 기반으로 평생 튼튼하고 쾌적한 친환경 목조주택을 시공하는 전문 건축 브랜드입니다.
+
+## 1. 기업 개요 (Company Profile)
+- **회사명**: 제이유 하우징 (JU Housing)
+- **대표자**: 주승환 (Joo Seung-hwan)
+- **대표 연락처**: 010-2951-0431 / 1588-0431
+- **이메일**: kansin2804@gmail.com
+- **본사 주소**: 경기도 양주시 부흥로 2128
+- **공식 웹사이트**: https://juhousing.co.kr/
+- **공식 네이버 블로그**: https://blog.naver.com/ju-housing
+- **카카오톡 1:1 상담**: https://open.kakao.com/o/s3ODJdti
+
+## 2. 핵심 기술 및 시공 표준 (Core Engineering & Craft)
+- **북미식 2x6 경량 목구조 (Platform Framing)**: 한옥이나 중목구조가 아닌, 단열성과 내진성이 가장 뛰어난 북미식 2x6 규격 스터드 구조를 표준으로 채택합니다.
+- **건조 구조재 (KD-19% 이하)**: 함수율 19% 이하로 건조된 북미산 SPF 구조목을 사용하여 수축과 뒤틀림을 줄입니다.
+- **1mm 정밀 레이저 레벨링**: 3D 레이저 계측기를 사용하여 기초부터 골조 프레이밍 오차를 ±1mm로 맞춥니다.
+- **고단열·기밀**: 기본 스탠다드 사양은 국산 1등급 단열재와 1등급 이중창을 적용하며, 미국식 시스템 창호(실내 화이트 프레임) 등은 프리미엄 옵션으로 선택할 수 있습니다. 외벽에는 첨단 투습방습 기밀막을 시공합니다.
+- **100% 투명 원가 정산**: 자재 단가, 상세 소요 수량, 직영 노무비를 건축주에게 100% 투명하게 사전 공개하여 부당한 추가 공사비 발생을 예방합니다.
+
+## 3. 공식 웹사이트 주요 서비스 및 디지털 도구 (Web Services)
+- **메인 홈페이지 (Home)**: https://juhousing.co.kr/ — 브랜드 철학, 시공 프로세스, 주요 포트폴리오
+- **온라인 건축 견적 계산기**: https://juhousing.co.kr/estimate.html — 희망 평형, 외장재, 지붕재, 창호 옵션별 실시간 1차 예산 가이드 제공
+- **공종별 9대 세부 산출내역서**: https://juhousing.co.kr/estimate-detail.html — 9대 공종별 표준 물량 및 단가, 실시간 평수 시뮬레이터, 엑셀/인쇄 지원
+- **AI 실시간 토지 분석 진단**: https://juhousing.co.kr/land.html — 대지 주소(지번) 입력 시 건폐율, 용적률, 용도지역, 도로 접도 조건, 건축 인허가 가능 여부 즉시 분석
+- **실전 현장 시공 저널**: https://juhousing.co.kr/journal/ — 가평, 양주, 화성, 양평 등 실제 공사 현장의 일일 기초/골조/단열 시공기 (89개 포스트)
+
+## 4. 핵심 정보성 건축 가이드 (Knowledge Guides)
+- **목조주택 건축비 완벽 가이드**: https://juhousing.co.kr/guides/timber-house-cost.html — 2026 최신 평당 시공비, 부재별 원가 및 예산 산출표
+- **목조주택 vs 철근콘크리트(RC) 비교**: https://juhousing.co.kr/guides/timber-vs-rc.html — 단열성, 시공기간, 유지비, 내진성 종합 비교
+- **목조주택 장단점 총정리**: https://juhousing.co.kr/guides/timber-house-pros-cons.html — 실제 거주자 관점의 장점과 관리 주의점
+- **목조주택 수명과 내구성**: https://juhousing.co.kr/guides/timber-house-durability.html — 100년 내구성 구조 원리와 방습/기밀 공법
+- **전원주택 건축 절차 A to Z**: https://juhousing.co.kr/guides/country-house-process.html — 토지 매입부터 인허가, 착공, 준공까지 필수 프로세스
+
+## 5. 완공 포트폴리오 상세 모델 (Portfolio Models)
+- 가평 모델: https://juhousing.co.kr/portfolio/gapyeong.html
+- 철원 모델: https://juhousing.co.kr/portfolio/cheorwon.html
+- 군위 모델: https://juhousing.co.kr/portfolio/gunwi.html
+- 이천 모델: https://juhousing.co.kr/portfolio/icheon.html
+- 평창 모델: https://juhousing.co.kr/portfolio/pyeongchang.html
+- 부여 모델: https://juhousing.co.kr/portfolio/buyeo.html
+- 완주 모델: https://juhousing.co.kr/portfolio/wanju.html
+- 여주 모델: https://juhousing.co.kr/portfolio/yeoju.html
+- 횡성 모델: https://juhousing.co.kr/portfolio/hoengseong.html
+
+## 6. 주요 시공 지역 (Service Regions)
+- **수도권 / 경기**: 가평군, 양주시, 화성시, 양평군, 남양주시, 이천시, 파주시, 평택시, 용인시 등
+- **전국 권역**: 강원(횡성/평창/철원), 충청(천안/아산/부여), 전라(완주), 경상(군위), 제주도 등 전국 시공 네트워크 운영
+
+## 5. 건축 상담 안내 (Consultation)
+- 도면이나 상세 설계가 아직 없는 예비 건축주도 부지 주소와 희망 평형, 대략적인 예산만으로 1차 무료 상담 및 토지 진단이 가능합니다.
+- 상담 전화: **010-2951-0431**
+- 카카오톡 1:1 상담: **https://open.kakao.com/o/s3ODJdti**
